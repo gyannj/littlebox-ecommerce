@@ -3,7 +3,7 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./modules/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -13,18 +13,21 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       colors: {
-        homeBackground: '#161925',
-        text: '#ffffff',
-        priceDrop: '#06ff2e',
-        strikeThroughPrice: '#626262',
-        gold: '#ffb300',
-      }
+        dark:{
+          1: '#161925',
+          2: '#1c1f2e',
+          3: '#252a41',
+        },
+        // homeBackground: '#161925',
+        textColor: '#ffffff',
+        priceDropColor: '#06ff2e',
+        strikeThroughPriceColor: '#626262',
+        goldColor: '#ffb300',
+        // navbarBackground: '#1c1f2e',
+        // searchBoxBackground: '#252a41',
+        searchBoxColor: '#9294a0',
+      },
     },
   },
   plugins: [],
