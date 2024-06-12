@@ -15,7 +15,7 @@ const Nav = (props: Props) => {
 
     return (
         <React.Fragment>
-            <div className='flex justify-between items bg-dark-3 rounded-lg p-2 lg:w-96 md:flex-grow-0 flex-grow mx-6 md:mx-0'>
+            <div className='flex justify-between items bg-dark-3 rounded-lg p-2 lg:w-[660px] md:flex-grow-0 flex-grow mx-6 md:mx-0'>
                 <input type="text" placeholder='Search' className='flex bg-transparent outline-none text-searchBoxColor' />
                 <SearchIcon className='text-searchBoxColor' />
             </div>
@@ -34,9 +34,15 @@ const Nav = (props: Props) => {
                     <ShoppingCartIcon className='mx-3'/>
                 </div>
             ) : (
-                <div onClick={() => setIsOpen(true)} className='flex flex-col items-center'>
-                        <AlignJustify size={32} className='mx-3 text-textColor align-middle'/>    
+                <div className='flex flex-row items-center justify-end text-textColor'>
+                        <ShoppingCartIcon size={28} className='mx-3'/> 
+                        <div onClick={() => {}}>
+                            <AlignJustify size={28} className='mx-3 align-middle' /> 
+                        </div> 
                 </div>
+
+                // Mobile Navbar
+
 
             )}
         </React.Fragment>
