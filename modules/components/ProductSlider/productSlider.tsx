@@ -24,21 +24,80 @@ function ProductSlider() {
                  
                  >
                 <CarouselContent className=''>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto "><ProductCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto"><ProductCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto"><ProductCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto ">
+
+                    <ProductCard
+                    productName="Apple Watch"
+                    price="Rs 1500"
+                    originalPrice="Rs 2000"
+                    discount="20% off"
+                    productImage="/bookcover.jpg"
+                    ratings={1}
+                    />
+
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto ">
+
+                    <ProductCard
+                    productName="Apple Watch"
+                    price="Rs 1500"
+                    originalPrice="Rs 2000"
+                    discount="20% off"
+                    productImage="/bookcover.jpg"
+                    ratings={2}
+                    />
+
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto ">
+
+                    <ProductCard
+                    productName="Apple Watch"
+                    price="Rs 1500"
+                    originalPrice="Rs 2000"
+                    discount="20% off"
+                    productImage="/bookcover.jpg"
+                    ratings={3}
+                    />
+
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto ">
+
+                    <ProductCard
+                    productName="Apple Watch"
+                    price="Rs 1500"
+                    originalPrice="Rs 2000"
+                    discount="20% off"
+                    productImage="/bookcover.jpg"
+                    ratings={4}
+                    />
+
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto ">
+
+                    <ProductCard
+                    productName="Apple Watch"
+                    price="Rs 1500"
+                    originalPrice="Rs 2000"
+                    discount="20% off"
+                    productImage="/bookcover.jpg"
+                    ratings={5}
+                    />
+
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto ">
+
+                    <ProductCard
+                    productName="Apple Watch"
+                    price="Rs 1500"
+                    originalPrice="Rs 2000"
+                    discount="20% off"
+                    productImage="/bookcover.jpg"
+                    ratings={5}
+                    />
+
+                    </CarouselItem>
+                   
                     
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto "><ProductCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto"><ProductCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto"><ProductCard/></CarouselItem>
-                    
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto "><ProductCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto"><ProductCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto"><ProductCard/></CarouselItem>
-                    
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto "><ProductCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto"><ProductCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 my-auto"><ProductCard/></CarouselItem>
                     
                 </CarouselContent>
                 <CarouselPrevious />
