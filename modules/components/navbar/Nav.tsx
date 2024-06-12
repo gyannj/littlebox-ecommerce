@@ -15,7 +15,9 @@ const Nav = (props: Props) => {
     const isAboveMediumScreen = useMediaQuery('(min-width: 768px)');
     const [isOpen, setIsOpen] = useState(false);
 
-
+ const closeMenu = () => {
+        setIsOpen(false);
+ }
 
     return (
         <React.Fragment>
@@ -42,11 +44,6 @@ const Nav = (props: Props) => {
                         <ShoppingCartIcon size={28} className='mx-3'/> 
                         <div className='flex flex-col justify-end'>
                             <BurgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-                            {isOpen && (
-                                <div className='flex'>
-                                    <NavMobile isOpen={isOpen}/>
-                                </div>
-                            )}
                         </div> 
                 </div>
 
@@ -54,6 +51,11 @@ const Nav = (props: Props) => {
 
 
             )}
+            {isOpen && (
+                                <div className='fixed top-0 right-0 w-full h-full bg-dark-2'>
+                                    <NavMobile isOpen={isOpen} closeMenu = {closeMenu} />
+                                </div>
+                            )}
         </React.Fragment>
     )
 }
