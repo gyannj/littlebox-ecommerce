@@ -4,6 +4,8 @@ import useMediaQuery from '@/modules/shared/hooks/useMediaQuery';
 import { AlignJustify, SearchIcon, ShoppingCartIcon} from 'lucide-react';
 import Link from 'next/link';
 import React, { useState } from 'react'
+import NavMobile from './NavMobile';
+import BurgerButton from './HamBurgerButton';
 
 type Props = {}
 
@@ -12,6 +14,8 @@ const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md';
 const Nav = (props: Props) => {
     const isAboveMediumScreen = useMediaQuery('(min-width: 768px)');
     const [isOpen, setIsOpen] = useState(false);
+
+
 
     return (
         <React.Fragment>
@@ -36,8 +40,13 @@ const Nav = (props: Props) => {
             ) : (
                 <div className='flex flex-row items-center justify-end text-textColor'>
                         <ShoppingCartIcon size={28} className='mx-3'/> 
-                        <div onClick={() => {}}>
-                            <AlignJustify size={28} className='mx-3 align-middle' /> 
+                        <div className='flex flex-col justify-end'>
+                            <BurgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+                            {isOpen && (
+                                <div className='flex'>
+                                    <NavMobile isOpen={isOpen}/>
+                                </div>
+                            )}
                         </div> 
                 </div>
 
