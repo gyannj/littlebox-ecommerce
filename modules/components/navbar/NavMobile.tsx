@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 
 
-const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md text-2xl my-8';
+const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md text-2xl my-8 font-semibold';
 
 const NavMobile = ({isOpen , closeMenu}:{isOpen:boolean , closeMenu:() => void}) => {
   return (

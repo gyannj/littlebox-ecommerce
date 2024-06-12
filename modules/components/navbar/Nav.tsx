@@ -1,7 +1,7 @@
 "use client"
 
 import useMediaQuery from '@/modules/shared/hooks/useMediaQuery';
-import { AlignJustify, SearchIcon, ShoppingCartIcon} from 'lucide-react';
+import { SearchIcon, ShoppingCartIcon} from 'lucide-react';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import NavMobile from './NavMobile';
@@ -9,7 +9,7 @@ import BurgerButton from './HamBurgerButton';
 
 type Props = {}
 
-const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md';
+const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md font-semibold ';
 
 const Nav = (props: Props) => {
     const isAboveMediumScreen = useMediaQuery('(min-width: 768px)');
@@ -37,7 +37,7 @@ const Nav = (props: Props) => {
                     <Link href='/' className={linkStyle}>
                         Account
                     </Link>
-                    <ShoppingCartIcon className='mx-3'/>
+                    <ShoppingCartIcon className='mx-5 size-7'/>
                 </div>
             ) : (
                 <div className='flex flex-row items-center justify-end text-textColor'>
