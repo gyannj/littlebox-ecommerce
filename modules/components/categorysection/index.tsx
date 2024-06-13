@@ -6,9 +6,9 @@ type Props = {}
 const index = (props: Props) => {
   return (
     
-    <div className='flex justify-center items-center h-screen w-[300px] sm:w-11/12  bg-green-700'>
+    // <div className='flex justify-center items-center h-screen w-[300px] sm:w-11/12  bg-green-700'>
     <ProductSlider />
-  </div>
+  // </div>
     
   )
 }
