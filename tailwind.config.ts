@@ -8,6 +8,8 @@ const config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
     './modules/**/*.{ts,tsx}',
+    
+    
 	],
   prefix: "",
   theme: {
@@ -53,6 +55,20 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        dark:{
+          1: '#161925',
+          2: '#1c1f2e',
+          3: '#252a41',
+        },
+        // homeBackground: '#161925',
+        textColor: '#ffffff',
+        priceDropColor: '#06ff2e',
+        strikeThroughPriceColor: '#626262',
+        goldColor: '#ffb300',
+        // navbarBackground: '#1c1f2e',
+        // searchBoxBackground: '#252a41',
+        searchBoxColor: '#9294a0',
+
       },
       borderRadius: {
         lg: "var(--radius)",
