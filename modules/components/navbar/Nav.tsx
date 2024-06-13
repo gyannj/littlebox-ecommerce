@@ -13,6 +13,8 @@ const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md font-semibold ';
 
 const Nav = (props: Props) => {
     const isAboveMediumScreen = useMediaQuery('(min-width: 768px)');
+    console.log(isAboveMediumScreen);
+    console.log(window.innerWidth);
     const [isOpen, setIsOpen] = useState(false);
 
  const closeMenu = () => {
@@ -32,7 +34,7 @@ const Nav = (props: Props) => {
                         Home
                     </Link>
                     <Link href='/' className={linkStyle}>
-                        Categories
+                        Orders
                     </Link>
                     <Link href='/' className={linkStyle}>
                         Account
@@ -52,7 +54,7 @@ const Nav = (props: Props) => {
 
             )}
             {isOpen && (
-                                <div className='fixed top-0 right-0 w-full h-full bg-dark-2'>
+                                <div className='fixed top-0 right-0 w-full h-full bg-dark-2 z-50'>
                                     <NavMobile isOpen={isOpen} closeMenu = {closeMenu} />
                                 </div>
                             )}

@@ -25,13 +25,27 @@ function ProductCard({
             alt={productName}
             className="w-full h-full object-cover"
           />
-        </div>
+        
+<!--         <div className="px-4 py-4 text-textColor">
+          <div className="font-bold lg:text-2xl md:text-xl text-lg mb-2">{productName}</div>
+          <div className="flex flex-col sm:flex-row items-center justify-between mb-2">
+            <div className='flex gap-2 items-baseline'>
+              <div className="text-white font-medium mb-2 sm:mb-0 text-sm md:text-lg lg:text-lg">
+                {price}
+              </div>
+              <div className="text-gray-500 line-through mr-2 sm:mr-0 sm:ml-2 text-sm">
+                {originalPrice}
+              </div>
+            </div>
+            <div className="text-xs text-green-500">{discount}</div> -->
+
         <div className="px-2 py-2 text-black">
           <div className="font-bold text-sm sm:text-base mb-1">{productName}</div>
           <div className="flex flex-col sm:flex-row items-center justify-between mb-1">
             <div className="text-black font-semibold mb-1 sm:mb-0 text-xs sm:text-sm">{price}</div>
             <div className="text-gray-500 line-through mr-1 sm:mr-0 sm:ml-1 text-xxs sm:text-xs">{originalPrice}</div>
             <div className="text-xxs text-green-500">{discount}</div>
+
           </div>
           <div className="flex items-center mt-1">
             {[...Array(ratings)].map((_, index) => (

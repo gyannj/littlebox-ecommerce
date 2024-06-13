@@ -2,7 +2,7 @@ import React from 'react';
 
 const StarRating = () => {
     const rating = 4.5;
-    const fullStars = Math.floor(rating);
+    const fullStars = Math.floor(rating);   
     const halfStar = Math.ceil(rating - fullStars) >= 0.5;
 
     return (
