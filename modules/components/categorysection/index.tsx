@@ -5,11 +5,11 @@ type Props = {}
 
 const index = (props: Props) => {
   return (
-    <div>
-      <div className='flex justify-center items-center h-screen w-8/12 md:w-10/12 mx-auto bg-green-700'>
-      <ProductSlider />
-    </div>
-    </div>
+    
+    <div className='flex justify-center items-center h-screen w-[300px] sm:w-11/12  bg-green-700'>
+    <ProductSlider />
+  </div>
+    
   )
 }
 
