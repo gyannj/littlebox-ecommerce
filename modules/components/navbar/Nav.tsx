@@ -21,8 +21,8 @@ const Nav = (props: Props) => {
 
     return (
         <React.Fragment>
-            <div className='flex justify-between items bg-dark-3 rounded-lg p-2 lg:w-[660px] md:flex-grow-0 flex-grow mx-6 md:mx-0'>
-                <input type="text" placeholder='Search' className='flex bg-transparent outline-none text-searchBoxColor' />
+            <div className='flex justify-between items bg-dark-3 rounded-lg p-2 lg:w-5/12 md:flex-grow-0 flex-grow mx-6 md:mx-0'>
+                <input type="text" placeholder='Search' className='flex bg-transparent outline-none text-searchBoxColor w-full' />
                 <SearchIcon className='text-searchBoxColor' />
             </div>
         
