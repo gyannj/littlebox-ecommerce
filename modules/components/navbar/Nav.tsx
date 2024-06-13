@@ -13,8 +13,6 @@ const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md font-semibold ';
 
 const Nav = (props: Props) => {
     const isAboveMediumScreen = useMediaQuery('(min-width: 768px)');
-    console.log(isAboveMediumScreen);
-    console.log(window.innerWidth);
     const [isOpen, setIsOpen] = useState(false);
 
  const closeMenu = () => {

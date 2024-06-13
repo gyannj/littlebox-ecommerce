@@ -135,8 +135,8 @@ function ProductSlider() {
                     </CarouselItem>
                     {/* Repeat CarouselItem for additional cards */}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious className='text-textColor bg-dark-2' />
+                <CarouselNext className='text-textColor bg-dark-2' />
             </Carousel>
         </div>
     );
