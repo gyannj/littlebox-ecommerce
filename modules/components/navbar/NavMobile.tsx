@@ -19,7 +19,7 @@ const NavMobile = ({isOpen , closeMenu}:{isOpen:boolean , closeMenu:() => void})
                 Home
             </Link>
             <Link href='/' className={linkStyle}>
-                Categories
+                Orders
             </Link>
             <Link href='/' className={linkStyle}>
                 Account

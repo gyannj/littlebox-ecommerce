@@ -27,11 +27,15 @@ function ProductCard({
           />
         </div>
         <div className="px-4 py-4 text-textColor">
-          <div className="font-bold text-lg sm:text-xl mb-2">{productName}</div>
+          <div className="font-bold lg:text-2xl md:text-xl text-lg mb-2">{productName}</div>
           <div className="flex flex-col sm:flex-row items-center justify-between mb-2">
-            <div className="text-white font-semibold mb-2 sm:mb-0">{price}</div>
-            <div className="text-gray-500 line-through mr-2 sm:mr-0 sm:ml-2">
-              {originalPrice}
+            <div className='flex gap-2 items-baseline'>
+              <div className="text-white font-medium mb-2 sm:mb-0 text-sm md:text-lg lg:text-lg">
+                {price}
+              </div>
+              <div className="text-gray-500 line-through mr-2 sm:mr-0 sm:ml-2 text-sm">
+                {originalPrice}
+              </div>
             </div>
             <div className="text-xs text-green-500">{discount}</div>
           </div>
