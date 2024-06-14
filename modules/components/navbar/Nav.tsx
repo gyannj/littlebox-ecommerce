@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 import NavMobile from './NavMobile';
 import BurgerButton from './HamBurgerButton';
 
+
 type Props = {}
 
 const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md font-semibold ';
