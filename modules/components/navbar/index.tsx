@@ -7,13 +7,13 @@ type Props = {}
   const index = (props: Props) => {
 
   return (
-    <div className='flex flex-row justify-between p-2 py-4 bg-dark-2 items-center'>
+    <header className='flex flex-row justify-between p-2 py-4 bg-dark-2 items-center'>
       <div className='flex'>
         <Image src='/next.svg' alt='logo' width={100} height={60} className='bg-white rounded-md p-2' />
       </div>
 
       <Nav />
-    </div>
+    </header>
   )
 }
 
