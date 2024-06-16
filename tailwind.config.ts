@@ -60,6 +60,8 @@ const config = {
           2: '#1c1f2e',
           3: '#252a41',
         },
+        purpleText: '#7d93f6',
+        buttonColor: '#4F5987',
         // homeBackground: '#161925',
         textColor: '#ffffff',
         priceDropColor: '#06ff2e',
