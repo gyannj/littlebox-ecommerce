@@ -64,6 +64,7 @@ const config = {
         buttonColor: '#4F5987',
         // homeBackground: '#161925',
         textColor: '#ffffff',
+        hrLineColor: '#7a7a7a',
         priceDropColor: '#06ff2e',
         strikeThroughPriceColor: '#626262',
         goldColor: '#ffb300',
