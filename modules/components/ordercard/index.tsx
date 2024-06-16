@@ -15,12 +15,12 @@ type Props = {
 
 const headerLabel = 'text-purpleText font-medium text-md'
 const detailsHeader = 'font-base text-sm'
-const buttonStyle = 'bg-dark-1 px-6 py-2 text-lg rounded-md w-40 flex justify-center font-light hover:bg-dark-2'
+const buttonStyle = 'bg-dark-1 px-6 py-2 text-lg rounded-md w-40 flex justify-center font-medium hover:bg-dark-2'
 
 const index = ({ orderDate, price, custName, orderID, bookName, pubYear, authorName, qnty } : Props) => {
   return (
     <div className='flex flex-col text-textColor bg-dark-3 mx-16 rounded-2xl font-'>
-      <div className='flex flex-row justify-between bg-dark-2 p-4'>
+      <div className='flex flex-row justify-between bg-dark-2 p-4 rounded-t-2xl'>
         <div className='flex flex-row'>
           <div className='px-4'>
             <p className={headerLabel}>
@@ -48,7 +48,7 @@ const index = ({ orderDate, price, custName, orderID, bookName, pubYear, authorN
           </div>
         </div>
 
-        <div className='flex flex-col items-end justify-end'>
+        <div className='flex flex-col items-end justify-end px-4'>
           <p className={headerLabel}>
               ORDER ID
           </p>
