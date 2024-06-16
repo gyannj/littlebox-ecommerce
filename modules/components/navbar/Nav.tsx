@@ -32,17 +32,21 @@ const Nav = (props: Props) => {
                     <Link href='/' className={linkStyle} >
                         Home
                     </Link>
-                    <Link href='/' className={linkStyle}>
+                    <Link href='/orders' className={linkStyle}>
                         Orders
                     </Link>
                     <Link href='/' className={linkStyle}>
                         Account
                     </Link>
-                    <ShoppingCartIcon className='mx-5 size-7'/>
+                    <Link href='/cart'>
+                        <ShoppingCartIcon className='mx-5 size-7' href='/cart'/>
+                    </Link>
                 </div>
             ) : (
                 <div className='flex flex-row items-center justify-end text-textColor'>
-                        <ShoppingCartIcon size={28} className='mx-3'/> 
+                        <Link href='/cart'>
+                            <ShoppingCartIcon className='mx-5 size-7' href='/cart'/>
+                        </Link>
                         <div className='flex flex-col justify-end'>
                             <BurgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
                         </div> 
