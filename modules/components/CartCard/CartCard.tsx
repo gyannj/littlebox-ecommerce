@@ -3,8 +3,13 @@ import Image from 'next/image';
 
 const CartCard = () => {
   return (
-    <div className='bg-dark-1 flex justify-center'>
-      <div className='bg-dark-3 w-8/12 h-72 rounded-2xl mt-10 grid grid-cols-[20%_60%_20%]'>
+    <div className='bg-dark-1 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8'>
+
+
+
+
+
+      <div className='bg-dark-3 w-8/12 md:h-72 rounded-2xl mt-10 flex flex-col items-center md:grid md:grid-cols-[20%_60%_20%]'>
 
         <div className='bg-dark-3 my-auto rounded mx-auto'>
           <div className='w-full h-64 relative'>
@@ -25,20 +30,44 @@ const CartCard = () => {
           <p className='text-green-600 mb-2'>In Stock</p>
           <p className='text-xs mb-1 text-textColor'>Publication Year: 2008</p>
           <p className='text-xs mb-4 text-textColor'>Author Name: Anonymous</p>
-          <select className='border border-gray-300 rounded-md px-2 py-1 w-10'>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <button className='bg-red-600 text-white px-2 py-1 rounded mt-2 w-32'>Delete</button>
+          <div className='flex gap-2'>
+            <p className=' text-textColor'>Quantity:</p>
+            <select className='border border-gray-300 rounded-md px-2 py-1 w-10'>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          
+          <button className='bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded mt-2 w-32'>Delete</button>
         </div>
 
 
-        <div className='bg-dark-3  pl-4 pt-14 rounded-r-2xl'>
+        <div className='bg-dark-3 pl-4 pt-14 pb-4 rounded-r-2xl'>
           <h1 className='text-2xl font-bold text-textColor'>Price:</h1>
-          <p className='text-md text-textColor'>$10.99</p>
+          <p className='md:text-md text-textColor'>$10.99</p>
         </div>
       </div>
+
+
+      
+
+      <div className="bg-dark-3 rounded-2xl  p-4 md:mt-10 h-32 w-8/12 md:w-auto">
+      <div className="text-lg font-bold mb-4 text-textColor">Subtotal (4 items) : $500</div>
+      <div className='flex flex-col'>
+        <button className="bg-dark-1 hover:bg-blue-600 text-textColor font-bold py-2 px-4 rounded ">
+          Proceed to Buy
+        </button>
+      </div>
+      
+      </div>
+
+
+
+
+
+
+
     </div>
   );
 };
