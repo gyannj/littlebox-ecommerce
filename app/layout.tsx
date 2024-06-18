@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/modules/components/navbar"
-import Footer from "@/modules/components/Footer/Footer";
+import Footer2 from "@/modules/components/Footer/footer2";
 
 export const metadata: Metadata = {
   title: "Book-Wala",
@@ -20,7 +20,7 @@ export default function RootLayout({
         <body>
         <NavBar/>
         {children}
-        <Footer/>
+        <Footer2/>
       </body>
     </html>
   );
