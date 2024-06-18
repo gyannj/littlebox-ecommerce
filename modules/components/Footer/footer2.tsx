@@ -10,9 +10,9 @@ const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md';
 const footer2 = (props: Props) => {
   return (
     <footer className='flex flex-col bg-dark-2 text-textColor items-center p-6'>
-        <div className='text-7xl font-bold mb-10'>
+        {/* <div className='text-6xl font-bold mb-10'>
             Thank you for visiting!
-        </div>
+        </div> */}
         <div className='flex flex-row justify-between gap-24 mt-6'>
             <div className='flex flex-col gap-2' >
                 <Image 
