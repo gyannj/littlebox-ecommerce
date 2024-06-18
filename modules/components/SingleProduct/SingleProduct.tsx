@@ -3,13 +3,9 @@ import Image from 'next/image'
 
 const SingleProduct = () => {
   return (
-    <div className='bg-dark-1 flex flex-row justify-center items-center gap-4'>
+    <div className='bg-dark-1 flex flex-row items-center justify-center p-4'>
 
-
-
-
-
-      <div className='bg-dark-1 w-4/12 md:h-72 rounded-2xl mt-10 flex flex-col items-center md:grid md:grid-cols-[40%_60%]'>
+      <div className='w-4/12 md:h-72 rounded-2xl mt-10 flex flex-col items-center justify-between md:grid md:grid-cols-[40%_60%]'>
 
         <div className='bg-dark-1 my-auto rounded mx-auto'>
           <div className='w-full h-64 relative'>
