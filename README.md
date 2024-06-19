@@ -1,3 +1,3 @@
 # Gyan
-# Rituraj
+# RiturajG
 # Jacinth
