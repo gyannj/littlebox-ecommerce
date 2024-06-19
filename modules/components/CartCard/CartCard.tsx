@@ -14,7 +14,7 @@ const CartCard = () => {
         <div className='bg-dark-3 my-auto rounded mx-auto'>
           <div className='w-full h-64 relative'>
             <Image
-              src="/bookcover.jpg"
+              src="/AOW.jpg"
               height={160}
               width={160}
               style={{objectFit: "contain"}}
