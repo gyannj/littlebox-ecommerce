@@ -18,10 +18,10 @@ const NavMobile = ({isOpen , closeMenu}:{isOpen:boolean , closeMenu:() => void})
             <Link href='/' className={linkStyle} >
                 Home
             </Link>
-            <Link href='/' className={linkStyle}>
+            <Link href='/orders' className={linkStyle}>
                 Orders
             </Link>
-            <Link href='/' className={linkStyle}>
+            <Link href='/account' className={linkStyle}>
                 Account
             </Link>
         </div>
