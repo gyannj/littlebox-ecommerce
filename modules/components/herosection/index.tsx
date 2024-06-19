@@ -151,26 +151,26 @@ const Slider = ({ slides }: { slides: { url: string }[] }) => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
     const slide = document.getElementById("banner-container");
-    if (slide) {
-      if (!isFirstSlide) {
-        slide.scrollLeft -= slide.offsetWidth;
-      } else {
-        slide.scrollLeft += (slides.length - 1) * slide.offsetWidth;
-      }
-    }
+    // if (slide) {
+    //   if (!isFirstSlide) {
+    //     slide.scrollLeft -= slide.offsetWidth;
+    //   } else {
+    //     slide.scrollLeft += (slides.length - 1) * slide.offsetWidth;
+    //   }
+    // }
     setCurrentIndex(newIndex);
   };
 
   const goToRightIndex = () => {
     const isLastSlide = currentIndex === slides.length - 1;
     const slide = document.getElementById("banner-container");
-    if (slide) {
-      if (!isLastSlide) {
-        slide.scrollLeft += slide.offsetWidth;
-      } else {
-        slide.scrollLeft -= (slides.length - 1) * slide.offsetWidth;
-      }
-    }
+    // if (slide) {
+    //   if (!isLastSlide) {
+    //     slide.scrollLeft += slide.offsetWidth;
+    //   } else {
+    //     slide.scrollLeft -= (slides.length - 1) * slide.offsetWidth;
+    //   }
+    // }
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
@@ -197,16 +197,17 @@ const Slider = ({ slides }: { slides: { url: string }[] }) => {
       >
         <BsChevronCompactRight size={30} />
       </div>
-      <div id="banner-container" className="overflow-hidden scroll-smooth snap-x snap-mandatory w-full h-full rounded-lg">
-        <div className="flex w-full h-full">
+      <div id="banner-container" className="overflow-hidden w-full h-full rounded-lg">
+        <div className="flex w-full h-full ">
           {slides.map((slide, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-full h-full rounded-md"
+              className="flex-shrink-0 w-full h-full rounded-md transition ease-in duration-500"
               style={{
                 backgroundImage: `url(${slide.url})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                transform : `translateX(-${currentIndex * 100}%)`,
               }}
             ></div>
           ))}
