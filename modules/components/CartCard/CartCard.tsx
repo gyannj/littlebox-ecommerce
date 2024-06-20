@@ -19,7 +19,7 @@ const CartCard = () => {
               width={160}
               style={{objectFit: "contain"}}
               alt="Picture of the author"
-              className='rounded-lg'
+              className='rounded-lg ml-2'
             />
           </div>
         </div>

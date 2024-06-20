@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/modules/components/navbar"
 import Footer2 from "@/modules/components/Footer/footer2";
 import AuthProvider from "@/modules/components/AuthProvider/AuthProvider";
+import Footer from "@/modules/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Book-Wala",
@@ -22,7 +23,7 @@ export default function RootLayout({
           <NavBar/>
           <div className="pt-20">
             {children}
-            <Footer2/>
+            <Footer/>
           </div>
       </body>
      </AuthProvider>
