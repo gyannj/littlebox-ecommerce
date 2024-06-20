@@ -2,11 +2,13 @@ import { X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react'
+import { useSession } from 'next-auth/react';
 
 
 const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md text-2xl my-8 font-semibold';
 
 const NavMobile = ({isOpen , closeMenu}:{isOpen:boolean , closeMenu:() => void}) => {
+    const {data :session} = useSession()
   return (
     <>
         <div className='flex justify-end text-textColor m-4' onClick={closeMenu}>
@@ -21,9 +23,15 @@ const NavMobile = ({isOpen , closeMenu}:{isOpen:boolean , closeMenu:() => void})
             <Link href='/orders' className={linkStyle}>
                 Orders
             </Link>
-            <Link href='/account' className={linkStyle}>
-                Account
-            </Link>
+            {
+                session ? 
+                    <Link href='/account' className={linkStyle}>
+                        Account
+                    </Link> :
+                    <Link href='/sign-in' className={linkStyle}>
+                        Sign In
+                    </Link>
+            }
         </div>
     </>
   )
