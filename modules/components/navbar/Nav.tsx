@@ -38,12 +38,12 @@ const Nav = (props: Props) => {
                     </Link>
                     {
                         session ? 
+                        <Link href='/account' className={linkStyle}>
+                            Account
+                        </Link> :
                         <Link href='/sign-in' className={linkStyle}>
-                        Account
-                    </Link> :
-                    <Link href='/sign-in' className={linkStyle}>
-                    Sign In
-                </Link>
+                            Sign In
+                        </Link>
                     }
                     <Link href='/cart'>
                         <ShoppingCartIcon className='mx-5 size-7' href='/cart'/>
