@@ -16,6 +16,7 @@ export async function POST(request : NextRequest){
                 "userId" : uuidv4()
             }
             const inv = [{
+
                 "category": "Fictional",
                 "price": 15.99,
                 "sellingPrice": 19.99,
@@ -23,7 +24,10 @@ export async function POST(request : NextRequest){
                 "productId": "FIC001",
                 "vendor": "ABC Books",
                 "name": "Dune",
-                "categoryId" : "100"
+
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964690/Ecommerce/dune_sxiuee.jpg"
+
             },
             {
                 "category": "Fictional",
@@ -33,7 +37,10 @@ export async function POST(request : NextRequest){
                 "productId": "FIC002",
                 "vendor": "XYZ Publishing",
                 "name": "The Great Gatsby",
-                "categoryId" : "100"
+
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964852/Ecommerce/thegreatgatsby_gngyz8.jpg"
+
             },
             {
                 "category": "Fictional",
@@ -43,7 +50,10 @@ export async function POST(request : NextRequest){
                 "productId": "FIC003",
                 "vendor": "Novel House",
                 "name": "Frankenstein",
-                "categoryId" : "100"
+
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964851/Ecommerce/frankenstein_woq5ub.jpg"
+
             },
             {
                 "category": "Fictional",
@@ -53,7 +63,10 @@ export async function POST(request : NextRequest){
                 "productId": "FIC004",
                 "vendor": "Middle Earth Books",
                 "name": "The Hobbit",
-                "categoryId" : "100"
+
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964852/Ecommerce/thehobbit_ezc2aw.jpg"
+
             },
             {
                 "category": "Fictional",
@@ -63,9 +76,12 @@ export async function POST(request : NextRequest){
                 "productId": "FIC005",
                 "vendor": "Gothic Press",
                 "name": "Dracula",
-                "categoryId" : "100"
+
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964850/Ecommerce/dracula_iuzz9x.jpg"
             },
             {
+
                 "category": "Non-Fictional",
                 "price": 22.00,
                 "sellingPrice": 24.99,
@@ -76,6 +92,9 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url":"https://m.media-amazon.com/images/I/51XWyS363pL._AC_UF1000,1000_QL80_.jpg", 
+
                 "category": "Non-Fictional",
                 "price": 30.00,
                 "sellingPrice": 34.99,
@@ -86,6 +105,9 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url": "https://m.media-amazon.com/images/I/713jIoMO3UL._AC_UF1000,1000_QL80_.jpg",
+
                 "category": "Non-Fictional",
                 "price": 18.50,
                 "sellingPrice": 21.99,
@@ -96,6 +118,9 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url": "https://m.media-amazon.com/images/I/71X3oKOMh0L._AC_UF1000,1000_QL80_.jpg",
+
                 "category": "Non-Fictional",
                 "price": 25.00,
                 "sellingPrice": 29.99,
@@ -106,6 +131,9 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url": "https://m.media-amazon.com/images/I/51nfN26y5XL._AC_UF894,1000_QL80_.jpg",
+
                 "category": "Non-Fictional",
                 "price": 16.99,
                 "sellingPrice": 19.99,
@@ -216,7 +244,11 @@ export async function POST(request : NextRequest){
                 "categoryId" : "103"
             },
             {
-                "image_url":"",
+
+
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMvSjAD0gSSLvPon-a19tSvV7TjF48WlcrEA&s",
+
+
                 "category": "Art and Entertainment",
                 "price": 22.50,
                 "sellingPrice": 26.99,
