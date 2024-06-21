@@ -23,7 +23,7 @@ function ProductCard({
           <img
             src={productImage}
             alt={productName}
-            className="w-full h-full object-cover"
+            className=" h-full object-contain"
           />
         
 {/* <!--         <div className="px-4 py-4 text-textColor">
