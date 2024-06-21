@@ -13,3 +13,9 @@ export interface inventory {
     pk : string
     productId : string
 }
+
+export interface cart_item {
+    "productId" : string
+    categoryId : string
+    quantity : number
+}
