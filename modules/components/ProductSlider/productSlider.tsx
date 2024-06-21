@@ -19,7 +19,7 @@ function ProductSlider() {
                             price="Rs 1500"
                             originalPrice="Rs 2000"
                             discount="20% off"
-                            productImage="/bookcover.jpg"
+                            productImage="/AOW.jpg"
                             ratings={1}
                         />
                     </CarouselItem>
@@ -29,7 +29,47 @@ function ProductSlider() {
                             price="Rs 1500"
                             originalPrice="Rs 2000"
                             discount="20% off"
-                            productImage="/bookcover.jpg"
+                            productImage="/POM.jpg"
+                            ratings={2}
+                        />
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
+                        <ProductCard
+                            productName="Apple Watch"
+                            price="Rs 1500"
+                            originalPrice="Rs 2000"
+                            discount="20% off"
+                            productImage="/Sudha-Murty.jpg"
+                            ratings={2}
+                        />
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
+                        <ProductCard
+                            productName="Apple Watch"
+                            price="Rs 1500"
+                            originalPrice="Rs 2000"
+                            discount="20% off"
+                            productImage="/Dopamine-Detox.jpg"
+                            ratings={2}
+                        />
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
+                        <ProductCard
+                            productName="Apple Watch"
+                            price="Rs 1500"
+                            originalPrice="Rs 2000"
+                            discount="20% off"
+                            productImage="/goosebumps.jpg"
+                            ratings={2}
+                        />
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
+                        <ProductCard
+                            productName="Apple Watch"
+                            price="Rs 1500"
+                            originalPrice="Rs 2000"
+                            discount="20% off"
+                            productImage="/black-holes.jpg"
                             ratings={2}
                         />
                     </CarouselItem>
@@ -49,7 +89,27 @@ function ProductSlider() {
                             price="Rs 1500"
                             originalPrice="Rs 2000"
                             discount="20% off"
-                            productImage="/bookcover.jpg"
+                            productImage="/AOW.jpg"
+                            ratings={2}
+                        />
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
+                        <ProductCard
+                            productName="Apple Watch"
+                            price="Rs 1500"
+                            originalPrice="Rs 2000"
+                            discount="20% off"
+                            productImage="/POM.jpg"
+                            ratings={2}
+                        />
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
+                        <ProductCard
+                            productName="Apple Watch"
+                            price="Rs 1500"
+                            originalPrice="Rs 2000"
+                            discount="20% off"
+                            productImage="/black-holes.jpg"
                             ratings={2}
                         />
                     </CarouselItem>
@@ -69,67 +129,7 @@ function ProductSlider() {
                             price="Rs 1500"
                             originalPrice="Rs 2000"
                             discount="20% off"
-                            productImage="/bookcover.jpg"
-                            ratings={2}
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
-                        <ProductCard
-                            productName="Apple Watch"
-                            price="Rs 1500"
-                            originalPrice="Rs 2000"
-                            discount="20% off"
-                            productImage="/bookcover.jpg"
-                            ratings={2}
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
-                        <ProductCard
-                            productName="Apple Watch"
-                            price="Rs 1500"
-                            originalPrice="Rs 2000"
-                            discount="20% off"
-                            productImage="/bookcover.jpg"
-                            ratings={2}
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
-                        <ProductCard
-                            productName="Apple Watch"
-                            price="Rs 1500"
-                            originalPrice="Rs 2000"
-                            discount="20% off"
-                            productImage="/bookcover.jpg"
-                            ratings={2}
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
-                        <ProductCard
-                            productName="Apple Watch"
-                            price="Rs 1500"
-                            originalPrice="Rs 2000"
-                            discount="20% off"
-                            productImage="/bookcover.jpg"
-                            ratings={2}
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
-                        <ProductCard
-                            productName="Apple Watch"
-                            price="Rs 1500"
-                            originalPrice="Rs 2000"
-                            discount="20% off"
-                            productImage="/bookcover.jpg"
-                            ratings={2}
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
-                        <ProductCard
-                            productName="Apple Watch"
-                            price="Rs 1500"
-                            originalPrice="Rs 2000"
-                            discount="20% off"
-                            productImage="/bookcover.jpg"
+                            productImage="/Sudha-Murty.jpg"
                             ratings={2}
                         />
                     </CarouselItem>
