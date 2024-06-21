@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Nav from './Nav'
 import { getServerSession } from 'next-auth' 
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/app/api/auth/[...nextauth]/options'
 type Props = {}
 
   const index = async (props: Props) => {

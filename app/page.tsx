@@ -30,8 +30,9 @@
 import React from "react";
 import CategorySection from "@/modules/components/categorysection";
 import Slider from "@/modules/components/herosection";
+import { categories } from "@/modules/shared/utils/arrayUtils";
 
-export default function Home() {
+export default function Home  () {
   const slides = [
     { url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
     { url: "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
@@ -47,7 +48,11 @@ export default function Home() {
       </div>
     </main>
     <div className="flex min-h-screen flex-col items-start p-24 bg-dark-1">
-    <CategorySection />
+    {
+      categories.map((category , index) => (
+        <CategorySection key={index}  categoryId={category.categoryId} categoryName={category.categoryName}/>
+      ))
+    }
     
     </div>
     </>
