@@ -16,6 +16,7 @@ export async function POST(request : NextRequest){
                 "userId" : uuidv4()
             }
             const inv = [{
+
                 "category": "Fictional",
                 "price": 15.99,
                 "sellingPrice": 19.99,
@@ -23,8 +24,10 @@ export async function POST(request : NextRequest){
                 "productId": "FIC001",
                 "vendor": "ABC Books",
                 "name": "Dune",
+
                 "categoryId" : "100",
                 "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964690/Ecommerce/dune_sxiuee.jpg"
+
             },
             {
                 "category": "Fictional",
@@ -34,8 +37,10 @@ export async function POST(request : NextRequest){
                 "productId": "FIC002",
                 "vendor": "XYZ Publishing",
                 "name": "The Great Gatsby",
+
                 "categoryId" : "100",
                 "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964852/Ecommerce/thegreatgatsby_gngyz8.jpg"
+
             },
             {
                 "category": "Fictional",
@@ -45,8 +50,10 @@ export async function POST(request : NextRequest){
                 "productId": "FIC003",
                 "vendor": "Novel House",
                 "name": "Frankenstein",
+
                 "categoryId" : "100",
                 "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964851/Ecommerce/frankenstein_woq5ub.jpg"
+
             },
             {
                 "category": "Fictional",
@@ -56,8 +63,10 @@ export async function POST(request : NextRequest){
                 "productId": "FIC004",
                 "vendor": "Middle Earth Books",
                 "name": "The Hobbit",
+
                 "categoryId" : "100",
                 "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964852/Ecommerce/thehobbit_ezc2aw.jpg"
+
             },
             {
                 "category": "Fictional",
@@ -67,10 +76,12 @@ export async function POST(request : NextRequest){
                 "productId": "FIC005",
                 "vendor": "Gothic Press",
                 "name": "Dracula",
+
                 "categoryId" : "100",
                 "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964850/Ecommerce/dracula_iuzz9x.jpg"
             },
             {
+
                 "category": "Non-Fictional",
                 "price": 22.00,
                 "sellingPrice": 24.99,
@@ -81,6 +92,9 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url":"https://m.media-amazon.com/images/I/51XWyS363pL._AC_UF1000,1000_QL80_.jpg", 
+
                 "category": "Non-Fictional",
                 "price": 30.00,
                 "sellingPrice": 34.99,
@@ -91,6 +105,9 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url": "https://m.media-amazon.com/images/I/713jIoMO3UL._AC_UF1000,1000_QL80_.jpg",
+
                 "category": "Non-Fictional",
                 "price": 18.50,
                 "sellingPrice": 21.99,
@@ -101,6 +118,9 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url": "https://m.media-amazon.com/images/I/71X3oKOMh0L._AC_UF1000,1000_QL80_.jpg",
+
                 "category": "Non-Fictional",
                 "price": 25.00,
                 "sellingPrice": 29.99,
@@ -111,6 +131,9 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url": "https://m.media-amazon.com/images/I/51nfN26y5XL._AC_UF894,1000_QL80_.jpg",
+
                 "category": "Non-Fictional",
                 "price": 16.99,
                 "sellingPrice": 19.99,
@@ -121,6 +144,8 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url": "https://m.media-amazon.com/images/I/71+tGC6LkSL._AC_UF1000,1000_QL80_.jpg",
                 "category": "Academic",
                 "price": 55.00,
                 "sellingPrice": 59.99,
@@ -131,6 +156,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url": "https://m.media-amazon.com/images/I/91jG0NUu4OL._AC_UF1000,1000_QL80_.jpg",
                 "category": "Academic",
                 "price": 45.00,
                 "sellingPrice": 49.99,
@@ -141,6 +167,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDVLmKOvkRxMiU8k5b6kVzXEXzavtzr5LxBw&s",
                 "category": "Academic",
                 "price": 60.00,
                 "sellingPrice": 64.99,
@@ -151,6 +178,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7h8oKa_fZs0OxK295rDovwn3z2L1XYJo01Q&s",
                 "category": "Academic",
                 "price": 38.50,
                 "sellingPrice": 42.99,
@@ -161,6 +189,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url": "https://jwu.pressbooks.pub/app/uploads/sites/28/2021/03/Intro-to-Sociology.png",
                 "category": "Academic",
                 "price": 42.00,
                 "sellingPrice": 46.99,
@@ -171,6 +200,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630683326i/10534.jpg",
                 "category": "Art and Entertainment",
                 "price": 18.99,
                 "sellingPrice": 21.99,
@@ -181,6 +211,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "103"
             },
             {
+                "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi6jsZyjjVepD9BSYa45GTQT10tJ2U-XO9lg&s",
                 "category": "Art and Entertainment",
                 "price": 14.50,
                 "sellingPrice": 17.99,
@@ -191,6 +222,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "103"
             },
             {
+                "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6bCpgNXG3BaG7xBXjNCTysWZTEKhjgqLLiw&s",
                 "category": "Art and Entertainment",
                 "price": 20.00,
                 "sellingPrice": 24.99,
@@ -201,6 +233,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "103"
             },
             {
+                "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDNyKOD4Eegu6pTxXPuj4IsapU90dml8OUxw&s",
                 "category": "Art and Entertainment",
                 "price": 16.95,
                 "sellingPrice": 19.99,
@@ -211,6 +244,11 @@ export async function POST(request : NextRequest){
                 "categoryId" : "103"
             },
             {
+
+
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMvSjAD0gSSLvPon-a19tSvV7TjF48WlcrEA&s",
+
+
                 "category": "Art and Entertainment",
                 "price": 22.50,
                 "sellingPrice": 26.99,
