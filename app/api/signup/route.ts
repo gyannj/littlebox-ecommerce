@@ -23,7 +23,8 @@ export async function POST(request : NextRequest){
                 "productId": "FIC001",
                 "vendor": "ABC Books",
                 "name": "Dune",
-                "categoryId" : "100"
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964690/Ecommerce/dune_sxiuee.jpg"
             },
             {
                 "category": "Fictional",
@@ -33,7 +34,8 @@ export async function POST(request : NextRequest){
                 "productId": "FIC002",
                 "vendor": "XYZ Publishing",
                 "name": "The Great Gatsby",
-                "categoryId" : "100"
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964852/Ecommerce/thegreatgatsby_gngyz8.jpg"
             },
             {
                 "category": "Fictional",
@@ -43,7 +45,8 @@ export async function POST(request : NextRequest){
                 "productId": "FIC003",
                 "vendor": "Novel House",
                 "name": "Frankenstein",
-                "categoryId" : "100"
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964851/Ecommerce/frankenstein_woq5ub.jpg"
             },
             {
                 "category": "Fictional",
@@ -53,7 +56,8 @@ export async function POST(request : NextRequest){
                 "productId": "FIC004",
                 "vendor": "Middle Earth Books",
                 "name": "The Hobbit",
-                "categoryId" : "100"
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964852/Ecommerce/thehobbit_ezc2aw.jpg"
             },
             {
                 "category": "Fictional",
@@ -63,7 +67,8 @@ export async function POST(request : NextRequest){
                 "productId": "FIC005",
                 "vendor": "Gothic Press",
                 "name": "Dracula",
-                "categoryId" : "100"
+                "categoryId" : "100",
+                "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964850/Ecommerce/dracula_iuzz9x.jpg"
             },
             {
                 "category": "Non-Fictional",
