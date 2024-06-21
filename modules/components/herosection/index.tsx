@@ -1,146 +1,5 @@
-// "use client"
-// import React, { useEffect, useRef, useState } from 'react';
-// import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-// import { GoDot, GoDotFill } from "react-icons/go";
-
-
-// const Slider = ({ slides }: { slides: { url: string }[] }) => {
-//     let ref = useRef(0);
-//     const [currentIndex, setCurrentIndex] = useState(0);
-    
-//     const sliderStyle = {
-       
-//         height: "100%",
-//         width: "80%",
-//         position: "relative" as const,
-//         };
-        
-//         // useEffect(() => {
-//         //     const interval = setInterval(() => {
-//         //         console.log('Getting called')
-//         //         goToRightIndex()}, 1000)
-//         //     return () => clearInterval(interval)
-
-//         // },[]) 
-//   const leftButtonStyle = {
-//     position: "absolute" as const,
-//     top: "50%",
-//     fontSize: "30px",
-//     left: "10px",
-//     transform: "translate(0,-50%)",
-//     zIndex: 1,
-//     cursor: "pointer"
-//   };
-
-//   const rightButtonStyle = {
-//     position: "absolute" as const,
-//     top: "50%",
-//     fontSize: "30px",
-//     right: "10px",
-//     transform: "translate(0,-50%)",
-//     zIndex: 1,
-//     cursor: "pointer"
-//   };
-
-//   const dotContainerStyle = {
-//     display: "flex",
-//     justifyContent: "center",
-//   };
-
-//   const dotStyle = {
-//     margin: "0 3px",
-//     cursor: "pointer",
-//     transition: "transform .2s",
-//   };
-
-//   const goToLeftIndex = () => {
-//     const isFirstSlide = currentIndex === 0;
-//     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-//     if(!isFirstSlide){
-//       const slide = document.getElementById('banner-container')
-//       slide.scrollLeft -= slide.offsetWidth
-      
-//     }else{
-//         const slide = document.getElementById(`banner-container`)
-//         slide.scrollLeft += (slides.length - 1) * slide.offsetWidth
-//     }
-//     setCurrentIndex(newIndex);
-//   };
-
-//   const goToRightIndex = () => {
-//     console.log("current index",currentIndex)
-//     const isLastSlide = currentIndex === slides.length - 1;
-//     if(!isLastSlide){
-//       const slide = document.getElementById(`banner-container`)
-//       slide.scrollLeft += slide.offsetWidth
-      
-      
-//     }else{
-//         const slide = document.getElementById(`banner-container`)
-//         slide.scrollLeft -= (slides.length - 1) * slide.offsetWidth
-      
-//     }
-//     const newIndex = isLastSlide ? 0 : currentIndex + 1;
-//     setCurrentIndex(newIndex);
-    
-  
-//   };
-
-//   const goToSlide = (slideIndex: number) => {
-//     setCurrentIndex(slideIndex);
-//   };
-// console.log(
-//   "currentIndex:",
-//   currentIndex
-// )
-//   return (
-//     <div style={sliderStyle}>
-//       <div style={leftButtonStyle} onClick={goToLeftIndex} className='text-white'>
-//         <BsChevronCompactLeft />
-//       </div>
-//       <div style={rightButtonStyle} onClick={goToRightIndex} className='text-white'>
-//         <BsChevronCompactRight />
-//       </div>
-//       <div id = "banner-container" className='overflow-hidden scroll-smooth snap-mandatory' style={{ height: "100%", width: "100%", borderRadius: "10px" }}>
-//         <div className='slide w-[400%] h-full flex flex-row'>
-//         {slides.map((slide, index) => (
-//             <div
-//             id= {`slide-${index}`}
-//             key={index}
-//             style={{
-//               backgroundImage: `url(${slide.url})`,
-//               height: "100%",
-//               width: "100%",
-//               backgroundSize: "cover",
-//               backgroundPosition: "center",
-//               }}
-//               ></div>
-//               ))}
-//             </div>
-//       </div>
-//       <div style={dotContainerStyle}>
-//         {slides.map((_, slideIndex) => (
-//           <div key={slideIndex} style={dotStyle} onClick={() => goToSlide(slideIndex)}>
-//             {  (slideIndex === currentIndex) ?
-//                           <GoDotFill  className={`text-black transition ease-in-out delay-150 hover:scale-125 hover:-translate-y-1`} />
-// :(
-
-//   <GoDot className={`text-black transition ease-in-out delay-150 hover:scale-125 hover:-translate-y-1`} />
-// )
-//             }
-            
-//             </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Slider;
-
-
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { GoDot, GoDotFill } from "react-icons/go";
 
@@ -183,6 +42,11 @@ const Slider = ({ slides }: { slides: { url: string }[] }) => {
     }
   };
 
+  useEffect(() => {
+    const interval = setInterval(goToRightIndex, 3000); // Change slide every 3 seconds
+    return () => clearInterval(interval); // Clean up the interval on component unmount
+  }, [currentIndex]);
+
   return (
     <div className="relative w-full h-full">
       <div
@@ -205,7 +69,8 @@ const Slider = ({ slides }: { slides: { url: string }[] }) => {
               className="flex-shrink-0 w-full h-full rounded-md transition ease-in duration-500"
               style={{
                 backgroundImage: `url(${slide.url})`,
-                backgroundSize: "cover",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 transform : `translateX(-${currentIndex * 100}%)`,
               }}
