@@ -9,10 +9,10 @@ type Props = {}
     const data= await getServerSession(authOptions)
     console.log("user",data)
   return (
-    <div className='fixed w-screen z-20'>
-      <header className='flex flex-row justify-between p-2 py-4 bg-dark-2 items-center'>
+    <div className='fixed w-screen z-20 '>
+      <header className='flex flex-row justify-between p-2  bg-dark-2 items-center'>
         <div className='flex'>
-          <Image src='/next.svg' alt='logo' width={100} height={60} className='bg-white rounded-md p-2' />
+          <Image src='/logo1.png' alt='logo' width={55} height={40} className='m-0 rounded-md' />
         </div>
         <Nav />
       </header>
