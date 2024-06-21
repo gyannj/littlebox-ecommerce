@@ -81,7 +81,7 @@ export async function POST(request : NextRequest){
                 "image_url": "https://res.cloudinary.com/dhoi8bcqz/image/upload/v1718964850/Ecommerce/dracula_iuzz9x.jpg"
             },
             {
-
+                "image_url":"https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9798216149279.jpg",
                 "category": "Non-Fictional",
                 "price": 22.00,
                 "sellingPrice": 24.99,
