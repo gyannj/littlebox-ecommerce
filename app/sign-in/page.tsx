@@ -1,13 +1,27 @@
+"use client"
+import { signIn } from 'next-auth/react';
 import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
-
+import { useRouter } from 'next/navigation';
 type Props = {}
 
 const buttonStyle = 'flex flex-row bg-dark-3 justify-center items-center py-3 px-4 size-fit rounded-lg hover:cursor-pointer hover:bg-slate-700';
 const placeholderStyle = 'flex bg-dark-3 outline-none text-searchBoxColor font-medium w-96 p-2 rounded-xl';
 
 const page = (props: Props) => {
+const router = useRouter()
+    const login = async() => { 
+        signIn("credentials", {
+            email : "rgautam@gmail.com",
+            password : "bestprogrammer"
+        }).then((data) => {
+            console.log("user details",data)
+            // router.push("/")
+        }).catch((err) => {
+            console.log("error",err)
+        })
+    }
   return (
     <div className='flex flex-col bg-dark-1 justify-center items-center text-textColor py-24'>
         <div className={buttonStyle} >
@@ -46,9 +60,10 @@ const page = (props: Props) => {
 
         <div className='flex flex-col gap-4 mt-16 items-center'>
             <div className={buttonStyle} >
-                <Link href='/' className='font-medium'>
+                <button onClick = {login}>Sign in </button>
+                {/* <Link href='/' className='font-medium' >
                     Sign In
-                </Link>
+                </Link> */}
             </div>
 
             <div className={buttonStyle}>
