@@ -145,7 +145,7 @@ export async function POST(request : NextRequest){
             },
             {
 
-                "image_url": "",
+                "image_url": "https://m.media-amazon.com/images/I/71+tGC6LkSL._AC_UF1000,1000_QL80_.jpg",
                 "category": "Academic",
                 "price": 55.00,
                 "sellingPrice": 59.99,
@@ -156,7 +156,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
-                "image_url": "",
+                "image_url": "https://m.media-amazon.com/images/I/91jG0NUu4OL._AC_UF1000,1000_QL80_.jpg",
                 "category": "Academic",
                 "price": 45.00,
                 "sellingPrice": 49.99,
