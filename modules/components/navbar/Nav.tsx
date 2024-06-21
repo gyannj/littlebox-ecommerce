@@ -17,7 +17,6 @@ const Nav = (props: Props) => {
     const isAboveMediumScreen = useMediaQuery('(min-width: 768px)');
     const [isOpen, setIsOpen] = useState(false);
     const {data :session} = useSession()
-    console.log("data",session)
  const closeMenu = () => {
         setIsOpen(false);
  }

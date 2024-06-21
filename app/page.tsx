@@ -30,8 +30,9 @@
 import React from "react";
 import CategorySection from "@/modules/components/categorysection";
 import Slider from "@/modules/components/herosection";
+import { categories } from "@/modules/shared/utils/arrayUtils";
 
-export default function Home() {
+export default function Home  () {
   const slides = [
     { url: "https://www.bookswagon.com/bannerimages/81_inr.jpg?v=5.2" },
     { url: "https://www.bookswagon.com/bannerimages/85_inr.jpg?v=5.2" },
@@ -50,7 +51,11 @@ export default function Home() {
       </div>
     </main>
     <div className="flex min-h-screen flex-col items-start p-24 bg-dark-1">
-    <CategorySection />
+    {
+      categories.map((category , index) => (
+        <CategorySection key={index}  categoryId={category.categoryId} categoryName={category.categoryName}/>
+      ))
+    }
     
     </div>
     </>
