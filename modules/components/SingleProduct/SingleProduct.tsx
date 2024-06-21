@@ -9,6 +9,7 @@ const SingleProduct = ({product} : {product : inventory}) => {
     {
       categoryId : product.categoryId,
       productId : product.productId,
+      price: product.price,
       quantity : 1
     }
   ]
