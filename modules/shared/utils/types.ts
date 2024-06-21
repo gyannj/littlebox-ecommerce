@@ -18,4 +18,5 @@ export interface cart_item {
     "productId" : string
     categoryId : string
     quantity : number
+    price: number
 }

@@ -10,7 +10,7 @@ interface PageProps {
 const page = async ({ params }: PageProps) => {
   const categoryId = params.slug[0]
   const productId = params.slug[1]
-  const data = await getSingleProduct(categoryId , productId)
+  const data = await getSingleProduct(categoryId , productId, price)
   if(data === 500){
     return (<div>
       product not found
