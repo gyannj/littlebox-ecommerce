@@ -144,6 +144,8 @@ export async function POST(request : NextRequest){
                 "categoryId" : "101"
             },
             {
+
+                "image_url": "",
                 "category": "Academic",
                 "price": 55.00,
                 "sellingPrice": 59.99,
@@ -154,6 +156,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url": "",
                 "category": "Academic",
                 "price": 45.00,
                 "sellingPrice": 49.99,
@@ -164,6 +167,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDVLmKOvkRxMiU8k5b6kVzXEXzavtzr5LxBw&s",
                 "category": "Academic",
                 "price": 60.00,
                 "sellingPrice": 64.99,
@@ -174,6 +178,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7h8oKa_fZs0OxK295rDovwn3z2L1XYJo01Q&s",
                 "category": "Academic",
                 "price": 38.50,
                 "sellingPrice": 42.99,
@@ -184,6 +189,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url": "https://jwu.pressbooks.pub/app/uploads/sites/28/2021/03/Intro-to-Sociology.png",
                 "category": "Academic",
                 "price": 42.00,
                 "sellingPrice": 46.99,
@@ -194,6 +200,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "102"
             },
             {
+                "image_url":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630683326i/10534.jpg",
                 "category": "Art and Entertainment",
                 "price": 18.99,
                 "sellingPrice": 21.99,
@@ -204,6 +211,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "103"
             },
             {
+                "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi6jsZyjjVepD9BSYa45GTQT10tJ2U-XO9lg&s",
                 "category": "Art and Entertainment",
                 "price": 14.50,
                 "sellingPrice": 17.99,
@@ -214,6 +222,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "103"
             },
             {
+                "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6bCpgNXG3BaG7xBXjNCTysWZTEKhjgqLLiw&s",
                 "category": "Art and Entertainment",
                 "price": 20.00,
                 "sellingPrice": 24.99,
@@ -224,6 +233,7 @@ export async function POST(request : NextRequest){
                 "categoryId" : "103"
             },
             {
+                "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDNyKOD4Eegu6pTxXPuj4IsapU90dml8OUxw&s",
                 "category": "Art and Entertainment",
                 "price": 16.95,
                 "sellingPrice": 19.99,
@@ -235,7 +245,9 @@ export async function POST(request : NextRequest){
             },
             {
 
+
                 "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMvSjAD0gSSLvPon-a19tSvV7TjF48WlcrEA&s",
+
 
                 "category": "Art and Entertainment",
                 "price": 22.50,
