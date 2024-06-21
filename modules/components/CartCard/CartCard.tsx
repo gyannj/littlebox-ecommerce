@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const CartCard = () => {
   return (
-    <div className='bg-dark-1 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8'>
+    <div className='bg-dark-1 flex flex-col md:flex-row justify-center items-center gap-4 '>
 
 
 
@@ -19,7 +19,7 @@ const CartCard = () => {
               width={160}
               style={{objectFit: "contain"}}
               alt="Picture of the author"
-              className='rounded-lg'
+              className='rounded-lg ml-2'
             />
           </div>
         </div>
@@ -52,16 +52,7 @@ const CartCard = () => {
 
       
 
-      <div className="bg-dark-3 rounded-2xl  p-4 md:mt-10 h-32 w-8/12 md:w-auto">
-      <div className="text-lg font-bold mb-4 text-textColor">Subtotal (4 items) : $500</div>
-      <div className='flex flex-col'>
-        <button className="bg-dark-1 hover:bg-blue-600 text-textColor font-bold py-2 px-4 rounded ">
-          Proceed to Buy
-        </button>
-      </div>
       
-      </div>
-
 
 
 

@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/modules/components/navbar"
 import Footer2 from "@/modules/components/Footer/footer2";
+import AuthProvider from "@/modules/components/AuthProvider/AuthProvider";
+import Footer from "@/modules/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Book-Wala",
@@ -16,12 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-     
-        <body>
-        <NavBar/>
-        {children}
-        <Footer2/>
+     <AuthProvider>
+        <body className="bg-dark-1">
+          <NavBar/>
+          <div className="pt-20">
+            {children}
+            <Footer/>
+          </div>
       </body>
+     </AuthProvider>
     </html>
   );
 }

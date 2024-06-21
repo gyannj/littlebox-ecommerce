@@ -6,6 +6,7 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import NavMobile from './NavMobile';
 import BurgerButton from './HamBurgerButton';
+import { useSession } from 'next-auth/react';
 
 
 type Props = {}
@@ -15,11 +16,11 @@ const linkStyle = 'p-2 px-3 mx-3 hover:bg-dark-3 rounded-md font-semibold ';
 const Nav = (props: Props) => {
     const isAboveMediumScreen = useMediaQuery('(min-width: 768px)');
     const [isOpen, setIsOpen] = useState(false);
-
+    const {data :session} = useSession()
+    console.log("data",session)
  const closeMenu = () => {
         setIsOpen(false);
  }
-
     return (
         <React.Fragment>
             <div className='flex justify-between items bg-dark-3 rounded-lg p-2 lg:w-5/12 md:flex-grow-0 flex-grow mx-6 md:mx-0'>
@@ -35,9 +36,15 @@ const Nav = (props: Props) => {
                     <Link href='/orders' className={linkStyle}>
                         Orders
                     </Link>
-                    <Link href='/' className={linkStyle}>
-                        Account
-                    </Link>
+                    {
+                        session ? 
+                        <Link href='/account' className={linkStyle}>
+                            Account
+                        </Link> :
+                        <Link href='/sign-in' className={linkStyle}>
+                            Sign In
+                        </Link>
+                    }
                     <Link href='/cart'>
                         <ShoppingCartIcon className='mx-5 size-7' href='/cart'/>
                     </Link>
