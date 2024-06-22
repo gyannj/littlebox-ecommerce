@@ -1,10 +1,10 @@
 import CartCard from '@/modules/components/CartCard/CartCard'
-import { get } from 'http'
 import React from 'react'
-import { getCartItems } from '../product/[...slug]/actions'
+import { getCartItems, getProductsByCartItems } from '../product/[...slug]/actions'
 
 const page =async () => {
-  const cartItems = await getCartItems();
+  const cartItems = await getProductsByCartItems();
+  console.log("cartItems", cartItems)
   return (
     <div className='flex bg-dark-1 gap-4 pb-4'>
     <div className='w-9/12'>

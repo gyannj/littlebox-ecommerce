@@ -1,5 +1,5 @@
 "use server"
-import { cart_item, inventory } from "@/modules/shared/utils/types"
+import { cart_item, cart_product, inventory } from "@/modules/shared/utils/types"
 import AWS from "aws-sdk"
 import { cookies } from "next/headers"
 const dynamodbclient = new AWS.DynamoDB.DocumentClient({region : process.env.REGION , accessKeyId : process.env.ACCESS_KEY , secretAccessKey : process.env.SECRET_KEY})
@@ -65,28 +65,73 @@ export const addToCart: (cartString : cart_item[]) => Promise<cart_item[] | 500>
         return 500
     }
 }
-
 export const getCartItems: () => Promise<cart_item[] | 500> = async () => {
     try {
-        const cartId = cookies().get("cart");
-        if (cartId) {
-            const response = await dynamodbclient.get({
-                TableName: process.env.TABLE_NAME as string,
-                Key: {
-                    "pk": `cart#${cartId}`,
-                    "sk": `cart#${cartId}`
-                }
-            }).promise();
-            if (response.Item && response.Item.cart) {
-                return response.Item.cart as cart_item[];
-            } else {
-                return 500;
+        const cartIdCookie = cookies().get("cart");
+        if (!cartIdCookie) {
+            console.log("Cart ID cookie is missing");
+            return 500;
+        }
+
+        const cartId = cartIdCookie.value;
+        console.log("Cart ID:", cartId);
+
+        const response = await dynamodbclient.get({
+            TableName: process.env.TABLE_NAME as string,
+            Key: {
+                "pk": `cart#${cartId}`,
+                "sk": `cart#${cartId}`
             }
+        }).promise();
+
+        console.log("DynamoDB response:", response);
+
+        if (response.Item && response.Item.cart) {
+            console.log("Cart items found:", response.Item.cart);
+            const cartItems = response.Item.cart as cart_item[];
+            
+            return response.Item.cart as cart_item[];
+        } else {
+            console.log("No cart items found in response");
+            return 500;
+        }
+    } catch (error) {
+        console.log("Error fetching cart items:", error);
+        return 500;
+    }
+}
+
+
+export const getProductsByCartItems: () => Promise<inventory[] | 500> = async () => {
+    try {
+        const cartItems = await getCartItems();
+        if (cartItems === 500) {
+            return 500;
+        }
+
+        const keys = cartItems.map(item => ({
+            pk: `inventory#${item.categoryId}`,
+            sk: item.productId
+        }));
+
+        const params = {
+            RequestItems: {
+                [process.env.TABLE_NAME as string]: {
+                    Keys: keys
+                }
+            }
+        };
+
+        const response = await dynamodbclient.batchGet(params).promise();
+        console.log("BatchGet response:", response);
+
+        if (response.Responses && response.Responses[process.env.TABLE_NAME as string]) {
+            return response.Responses[process.env.TABLE_NAME as string] as inventory[];
         } else {
             return 500;
         }
     } catch (error) {
-        console.log("error", error);
+        console.log("Error fetching products by cart items:", error);
         return 500;
     }
 }
