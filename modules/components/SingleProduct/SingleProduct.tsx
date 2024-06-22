@@ -12,7 +12,9 @@ const SingleProduct = ({product} : {product : inventory}) => {
       quantity : 1
     }
   ]
-  const addCart = addToCart.bind(null,item) 
+  const addCart = async () => {
+    await addToCart(item)
+  } 
   return (
     <div className='bg-dark-1 flex flex-row items-center justify-center p-4'>
 

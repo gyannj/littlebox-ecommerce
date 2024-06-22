@@ -27,7 +27,8 @@ export const getSingleProduct: (categoryId : string , productId : string) => Pro
     }
 }
 
-export const addToCart: (cart : cart_item[]) => Promise<cart_item[] | 500>= async (cart) => {
+export const addToCart: (cartString : cart_item[]) => Promise<cart_item[] | 500>= async (cartString) => {
+    const cart = cartString
     try {
         const cartId = cookies().get("cart")
         console.log("adding to cart")
