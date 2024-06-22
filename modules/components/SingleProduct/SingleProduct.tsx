@@ -1,16 +1,17 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { cart_item, inventory } from '@/modules/shared/utils/types'
 import { addToCart } from '@/app/product/[...slug]/actions'
 
 const SingleProduct = ({product} : {product : inventory}) => {
+  const [quantity, setQuantity] = useState(1)
   const item = [
     {
       categoryId : product.categoryId,
       productId : product.productId,
       price: product.price,
-      quantity : 1
+      quantity : quantity
     }
   ]
   const addCart = addToCart.bind(null,item) 
@@ -48,7 +49,9 @@ const SingleProduct = ({product} : {product : inventory}) => {
                 <div className='flex gap-2 mt-2'>
                 
                     <p className=' text-textColor text-sm'>Quantity:</p>
-                    <select className='border border-gray-300 rounded-md  w-auto'>
+                    <select className='border border-gray-300 rounded-md  w-auto'
+                      onChange={(e) => setQuantity(parseInt(e.target.value))}
+                    >
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
