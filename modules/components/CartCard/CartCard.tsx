@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { cart_item } from '@/modules/shared/utils/types';
+import { cart_product, inventory } from '@/modules/shared/utils/types';
 
-// type CartProps = {
-//   items: cart_item[];
+// type props = {
+//   items : inventory[]
 // }
 
 const CartCard = ({items}: any) => {
@@ -14,13 +14,13 @@ const CartCard = ({items}: any) => {
 
 
 
-
+  {items.map((item : inventory , index : number) => (
       <div className='bg-dark-3 w-8/12 md:h-72 rounded-2xl mt-10 flex flex-col items-center md:grid md:grid-cols-[20%_60%_20%]'>
 
         <div className='bg-dark-3 my-auto rounded mx-auto'>
           <div className='w-full h-64 relative'>
             <Image
-              src="/AOW.jpg"
+              src={`${item.image_url}`}
               height={160}
               width={160}
               style={{objectFit: "contain"}}
@@ -32,17 +32,17 @@ const CartCard = ({items}: any) => {
 
 
         <div className='bg-dark-3 flex flex-col justify-center pl-4 pt-6'>
-          <h2 className='text-2xl font-bold text-textColor'>Product Name</h2>
-          <p className='text-green-600 mb-2'>In Stock</p>
+          <h2 className='text-2xl font-bold text-textColor'>{item.name}</h2>
+          <p className='text-green-600 mb-2'>In Stock: {item.stock}</p>
           <p className='text-xs mb-1 text-textColor'>Publication Year: 2008</p>
-          <p className='text-xs mb-4 text-textColor'>Author Name: Anonymous</p>
+          <p className='text-xs mb-4 text-textColor'>{item.vendor}</p>
           <div className='flex gap-2'>
-            <p className=' text-textColor'>Quantity:</p>
-            <select className='border border-gray-300 rounded-md px-2 py-1 w-10'>
+            <p className=' text-textColor'>Quantity: </p>
+            {/* <select value ={item.quantity} className='border border-gray-300 rounded-md px-2 py-1 w-10'>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
-            </select>
+            </select> */}
           </div>
           
           <button className='bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded mt-2 w-32'>Delete</button>
@@ -51,11 +51,12 @@ const CartCard = ({items}: any) => {
 
         <div className='bg-dark-3 pl-4 pt-14 pb-4 rounded-r-2xl'>
           <h1 className='text-2xl font-bold text-textColor'>Price:</h1>
-          <p className='md:text-md text-textColor'>$10.99</p>
+          <p className='md:text-md text-textColor'>${item.price}</p>
         </div>
       </div>
 
-
+  ))
+}
       
 
       
