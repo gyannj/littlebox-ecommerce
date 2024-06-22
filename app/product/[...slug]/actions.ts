@@ -64,3 +64,28 @@ export const addToCart: (cart : cart_item[]) => Promise<cart_item[] | 500>= asyn
         return 500
     }
 }
+
+export const getCartItems: () => Promise<cart_item[] | 500> = async () => {
+    try {
+        const cartId = cookies().get("cart");
+        if (cartId) {
+            const response = await dynamodbclient.get({
+                TableName: process.env.TABLE_NAME as string,
+                Key: {
+                    "pk": `cart#${cartId}`,
+                    "sk": `cart#${cartId}`
+                }
+            }).promise();
+            if (response.Item && response.Item.cart) {
+                return response.Item.cart as cart_item[];
+            } else {
+                return 500;
+            }
+        } else {
+            return 500;
+        }
+    } catch (error) {
+        console.log("error", error);
+        return 500;
+    }
+}

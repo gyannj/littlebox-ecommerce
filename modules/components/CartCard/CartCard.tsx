@@ -1,7 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
+import { cart_item } from '@/modules/shared/utils/types';
 
-const CartCard = () => {
+// type CartProps = {
+//   items: cart_item[];
+// }
+
+const CartCard = ({items}: any) => {
+  console.log(items)
   return (
     <div className='bg-dark-1 flex flex-col md:flex-row justify-center items-center gap-4 '>
 

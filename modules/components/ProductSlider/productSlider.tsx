@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import ProductCard from '../ProductCard/ProductCard';
 import { inventory } from '@/modules/shared/utils/types';
+import Link from 'next/link';
 type props = {
     products : inventory[]
 }
@@ -24,14 +25,18 @@ function ProductSlider({products } : props ) {
                     {
                         products.map((product : inventory , index : number) => (
                             <CarouselItem key = {index}className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 my-auto">
-                                <ProductCard
-                                    productName={product.name}
-                                    price={`Rs ${product.price}`}
-                                    originalPrice={`Rs ${product.sellingPrice}`}
-                                    discount={`${calculateDiscount(product.sellingPrice , product.price)}% off`}
-                                    productImage={product.image_url}
-                                    ratings={0}
-                        />
+                               <Link href={`/product/${product.categoryId}/${product.productId}`}>
+                               
+                                    <ProductCard
+                                        productName={product.name}
+                                        price={`Rs ${product.price}`}
+                                        originalPrice={`Rs ${product.sellingPrice}`}
+                                        discount={`${calculateDiscount(product.sellingPrice, product.price)}% off`}
+                                        productImage={product.image_url}
+                                        ratings={0}
+                                    />
+                              
+                            </Link>
                     </CarouselItem>
                         ))
                     }

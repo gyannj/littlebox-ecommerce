@@ -17,7 +17,7 @@ export const getProductsByCategoryId : (categoryId : string) => Promise<inventor
             },
             Limit : 10
         }).promise()
-        console.log("response ", response)
+        // console.log("response ", response)
       const data = response['Items']
       return data as inventory[]
     } catch (error) {
@@ -25,3 +25,4 @@ export const getProductsByCategoryId : (categoryId : string) => Promise<inventor
         return []
     }
 }
+

@@ -1,17 +1,14 @@
 import CartCard from '@/modules/components/CartCard/CartCard'
+import { get } from 'http'
 import React from 'react'
+import { getCartItems } from '../product/[...slug]/actions'
 
-const page = () => {
+const page =async () => {
+  const cartItems = await getCartItems();
   return (
     <div className='flex bg-dark-1 gap-4 pb-4'>
     <div className='w-9/12'>
-        <CartCard/>
-        <CartCard/>
-        <CartCard/>
-        <CartCard/>
-        <CartCard/>
-        <CartCard/>
-        <CartCard/>
+        <CartCard items={cartItems}/>
     </div>
 
     <div className=''>
