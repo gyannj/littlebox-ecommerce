@@ -53,7 +53,7 @@ export default function Home  () {
     <div className="flex min-h-screen flex-col items-start p-24 bg-dark-1">
     {
       categories.map((category , index) => (
-        <CategorySection key={index}  categoryId={category.categoryId} categoryName={category.categoryName}/>
+          <CategorySection key={index}  categoryId={category.categoryId} categoryName={category.categoryName}/>
       ))
     }
     

@@ -10,12 +10,13 @@ function ProductCard({
   ratings,
 }: {
   productName: string;
-  price: string;
-  originalPrice: string;
-  discount: string;
+  price: number;
+  originalPrice: number;
+  discount: number;
   productImage: string;
   ratings: number;
 }) {
+  const price2 = price.toFixed(2);
   return (
     <div className="flex justify-center items-center mt-2">
       <div className="max-w-xs sm:max-w-sm w-48 h-72 rounded overflow-hidden shadow-lg">
@@ -40,17 +41,17 @@ function ProductCard({
             <div className="text-xs text-green-500">{discount}</div> --> */}
 
         <div className="px-2 py-2 text-textColor">
-          <div className="font-bold lg:text-2xl md:text-xl text-lg mb-1">{productName}</div>
+          <div className="font-bold md:text-xl text-lg mb-1">{productName.substring(0, 10)}...</div>
           <div className="flex flex-col sm:flex-row items-center justify-start mb-1">
             <div className='flex gap-1 items-baseline'>
               <div className="text-textColor font-semibold mb-1 sm:mb-0 text-xs sm:text-sm">
-                {price}
+                ${price.toFixed(1)}
               </div>
               <div className="text-strikeThroughPriceColor line-through mr-1 sm:mr-0 sm:ml-1 text-xs md:text-s">
-                {originalPrice}
+                ${originalPrice}
               </div>
             </div>
-            <div className="text-xs text-priceDropColor ml-2">{discount}</div>
+            <div className="text-xs text-priceDropColor ml-2">{discount}% off</div>
 
           </div>
           <div className="flex items-center mt-1 text-lg">

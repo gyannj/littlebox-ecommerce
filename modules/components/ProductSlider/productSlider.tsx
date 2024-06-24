@@ -19,7 +19,7 @@ function ProductSlider({products } : props ) {
         return discount.toFixed(2)
     }
     return (
-        <div className='basis-full h-3/4 w-full mt-10'>
+        <div className='basis-full h-3/4 w-full my-10 '>
             <Carousel opts={{ align: "start", loop: true }}>
                 <CarouselContent className=''>
                     {
@@ -29,9 +29,9 @@ function ProductSlider({products } : props ) {
                                
                                     <ProductCard
                                         productName={product.name}
-                                        price={`Rs ${product.price}`}
-                                        originalPrice={`Rs ${product.sellingPrice}`}
-                                        discount={`${calculateDiscount(product.sellingPrice, product.price)}% off`}
+                                        price={product.price}
+                                        originalPrice={product.sellingPrice}
+                                        discount={calculateDiscount(product.sellingPrice, product.price)}
                                         productImage={product.image_url}
                                         ratings={0}
                                     />
