@@ -20,17 +20,17 @@ const SingleProduct = ({product} : {product : inventory}) => {
   return (
     <div className='bg-dark-1 flex flex-row items-center justify-center p-4'>
 
-      <div className='w-4/12 md:h-72 rounded-2xl mt-10 flex flex-col items-center justify-between md:grid md:grid-cols-[40%_60%]'>
+      <div className='w-4/12 md:h-72 mt-10 flex flex-col items-center justify-between md:grid md:grid-cols-[40%_60%]'>
 
-        <div className='bg-dark-1 my-auto rounded mx-auto'>
+        <div className='bg-dark-1 my-auto mx-auto'>
           <div className='w-full h-64 relative'>
             <Image
               src={`${product.image_url}`}
-              height={160}
-              width={160}
+              height={420}
+              width={420}
               style={{objectFit: "contain"}}
               alt="Picture of the author"
-              className='rounded-lg'
+              className='rounded-lg mr-12'
             />
           </div>
         </div>
@@ -45,7 +45,7 @@ const SingleProduct = ({product} : {product : inventory}) => {
           
                 <div className='flex gap-2'>
                     <h1 className='text-md font-bold text-textColor'>Price:</h1>
-                    <p className='text-md text-textColor'>{product.price}</p>
+                    <p className='text-md text-textColor'>${product.price}</p>
                 
                 </div>
                 <div className='flex gap-2 mt-2'>

@@ -12,7 +12,7 @@ type Props = {}
     <div className='fixed w-screen z-20 '>
       <header className='flex flex-row justify-between p-2  bg-dark-2 items-center'>
         <div className='flex'>
-          <Image src='/logo1.png' alt='logo' width={55} height={40} className='m-0 rounded-md' />
+          <Image src='/logo1.png' alt='logo' width={45} height={40} className='m-0 rounded-md' />
         </div>
         <Nav />
       </header>

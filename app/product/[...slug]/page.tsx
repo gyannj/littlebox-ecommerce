@@ -17,7 +17,7 @@ const page = async ({ params }: PageProps) => {
     </div>)
   }else
   return (
-    <div className=''>
+    <div className='mb-24'>
         <SingleProduct product = {data}/>
     </div>
   )
