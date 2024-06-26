@@ -1,5 +1,6 @@
 import type { AuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import { mergeCart } from "./mergeCart"
 export const authOptions: AuthOptions = {
     secret : process.env.JWT_KEY,
     session : {strategy : "jwt", maxAge : 30* 24 * 60 * 60},
@@ -41,7 +42,11 @@ export const authOptions: AuthOptions = {
                     "id" : user.body.userId,
                     "userId" : user.body.userId,
                     "email" : user.email || "abc@gmail.com"
-                } 
+                }
+
+                await mergeCart(user.body.userId)
+                //cookies id get
+                //list append cart#<customerid> and cookies id cart
                 return userDetails 
             }else{
                 return null

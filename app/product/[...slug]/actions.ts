@@ -1,6 +1,8 @@
 "use server"
+import { authOptions } from "@/app/api/auth/[...nextauth]/options"
 import { cart_item, cart_product, inventory } from "@/modules/shared/utils/types"
 import AWS from "aws-sdk"
+import { getServerSession } from "next-auth"
 import { cookies } from "next/headers"
 const dynamodbclient = new AWS.DynamoDB.DocumentClient({region : process.env.REGION , accessKeyId : process.env.ACCESS_KEY , secretAccessKey : process.env.SECRET_KEY})
 import { v4 as uuidv4 } from 'uuid'; 
@@ -29,22 +31,29 @@ export const getSingleProduct: (categoryId : string , productId : string) => Pro
 
 export const addToCart: (cart : cart_item[]) => Promise<cart_item[] | 500>= async (cart) => {
     try {
-        const cartId = cookies().get("cart")
+        const session = await getServerSession(authOptions)
+
+        
+        const cartIdCookie = cookies().get("cart")?.value
+        const cartId = session  && "userId" in session ? session.userId : cartIdCookie ? cartIdCookie : null;
         console.log("adding to cart")
         if(cartId){
             console.log("cartID already exists", cartId)
             const response = await dynamodbclient.update({
                 TableName : process.env.TABLE_NAME as string,
                 Key : {
-                    "pk" : `cart${cartId}`,
-                    "sk" : `cart${cartId}`
+                    "pk" : `cart#${cartId}`,
+                    "sk" : `cart#${cartId}`
                 },
-                UpdateExpression : `set cart = list_append(if_not_exists(cart, :emptycart) , ${cart})`,
+                UpdateExpression : `set cart = list_append(if_not_exists(cart, :emptycart) , :newcart)`,
                 ExpressionAttributeValues : {
-                    ":emptycart" : []
+                    ":emptycart" : [],
+                    ":newcart" : cart
                 },
                 ReturnValues : "ALL_NEW"
             }).promise()
+            console.log(response['Attributes'])
+            console.log("cart id:", cartId)
             return response['Attributes'] as cart_item[]
         }else{
             //create new cart Id
@@ -68,15 +77,16 @@ export const addToCart: (cart : cart_item[]) => Promise<cart_item[] | 500>= asyn
 }
 export const getCartItems: () => Promise<cart_item[] | 500> = async () => {
     try {
+        const session = await getServerSession(authOptions)
+        console.log("session",session)
         const cartIdCookie = cookies().get("cart");
-        if (!cartIdCookie) {
+        
+        const cartId = session  && "userId" in session ? session.userId : cartIdCookie ? cartIdCookie.value : null;
+        if (!cartId) {
             console.log("Cart ID cookie is missing");
             return 500;
         }
-
-        const cartId = cartIdCookie.value;
         console.log("Cart ID:", cartId);
-
         const response = await dynamodbclient.get({
             TableName: process.env.TABLE_NAME as string,
             Key: {
@@ -102,6 +112,42 @@ export const getCartItems: () => Promise<cart_item[] | 500> = async () => {
     }
 }
 
+export const getCartItemsFromCartId: (cartId: string) => Promise<cart_item[] |404| 500> = async (cartId) => {
+    try {
+        
+        if (!cartId) {
+            console.log("Cart ID cookie is missing");
+            return 500;
+        }
+
+        
+        console.log("Cart ID:", cartId);
+
+        const response = await dynamodbclient.get({
+            TableName: process.env.TABLE_NAME as string,
+            Key: {
+                "pk": `cart#${cartId}`,
+                "sk": `cart#${cartId}`
+            }
+        }).promise();
+
+        console.log("DynamoDB response:", response);
+
+        if (response.Item && response.Item.cart) {
+            console.log("Cart items found:", response.Item.cart);
+            const cartItems = response.Item.cart as cart_item[];
+            
+            return response.Item.cart as cart_item[];
+        } else {
+            console.log("No cart items found in response");
+            return 404;
+        }
+    } catch (error) {
+        console.log("Error fetching cart items:", error);
+        return 500;
+    }
+}
+
 export const getProductsByCartItems: () => Promise<cart_product[] | 500> = async () => {
     try {
         const cartItems = await getCartItems();
@@ -111,8 +157,7 @@ export const getProductsByCartItems: () => Promise<cart_product[] | 500> = async
         console.log(cartItems)
         const products: cart_product[] = [];
 
-        for (const innerArray of cartItems) {
-            for(const item of innerArray){
+        for (const item of cartItems) {
             const categoryId = item.categoryId;
             const productId = item.productId;
             console.log(categoryId);
@@ -144,7 +189,7 @@ export const getProductsByCartItems: () => Promise<cart_product[] | 500> = async
         console.log("All products fetched with quantities:", products);
         return products;
     }
- } catch (error) {
+ catch (error) {
         console.log("Error fetching products by cart items:", error);
         return 500;
     }
@@ -152,14 +197,15 @@ export const getProductsByCartItems: () => Promise<cart_product[] | 500> = async
 
 export const deleteCartItem: (categoryId: string, productId: string) => Promise<cart_item[] | 500> = async (categoryId, productId) => {
     try {
+        const session = await getServerSession(authOptions)
+        console.log("session",session)
         const cartIdCookie = cookies().get("cart");
-        if (!cartIdCookie) {
+        
+        const cartId = session  && "userId" in session ? session.userId : cartIdCookie ? cartIdCookie.value : null;
+        if (!cartId) {
             console.log("Cart ID cookie is missing");
             return 500;
         }
-
-        const cartId = cartIdCookie.value;
-        console.log("Cart ID:", cartId);
 
         const cartResponse = await dynamodbclient.get({
             TableName: process.env.TABLE_NAME as string,

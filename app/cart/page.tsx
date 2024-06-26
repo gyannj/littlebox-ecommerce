@@ -8,11 +8,11 @@ const page =async () => {
   return (
     <div className='flex bg-dark-1 gap-4 pb-4'>
     <div className='w-9/12'>
-    {cartItems === 500 ? 
+    {cartItems === 500||cartItems.length == 0 ? 
       <div className='text-textColor flex justify-center items-center'>No items in cart</div> : <CartCard items={cartItems}/>}
      
     </div>
-    {cartItems === 500 ? null : 
+    {cartItems === 500||cartItems.length == 0 ? null : 
        <div className=''>
        <div className="bg-dark-3 rounded-2xl  p-4 md:mt-10 h-32 w-8/12 md:w-auto ">
        <div className="text-lg font-bold mb-4 text-textColor">Subtotal (4 items) : $500</div>
