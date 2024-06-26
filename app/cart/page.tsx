@@ -6,13 +6,13 @@ import { cart_product } from '@/modules/shared/utils/types';
 import { createOrder } from './actions';
 import BuyButton from '@/components/ui/BuyButton';
 
-const page =async () => {
-import CartCard from "@/modules/components/CartCard/CartCard";
-import React from "react";
-import {
-  getCartItems,
-  getProductsByCartItems,
-} from "../product/[...slug]/actions";
+// const page =async () => {
+// import CartCard from "@/modules/components/CartCard/CartCard";
+// import React from "react";
+// import {
+//   getCartItems,
+//   getProductsByCartItems,
+// } from "../product/[...slug]/actions";
 
 const page = async () => {
   const cartItems = await getProductsByCartItems();
@@ -40,3 +40,4 @@ const page = async () => {
 }
 
 export default page
+
