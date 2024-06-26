@@ -26,3 +26,28 @@ export const getProductsByCategoryId : (categoryId : string) => Promise<inventor
     }
 }
 
+
+export const getBestSellers : () => Promise<inventory[]>= async ( ) => {
+    try {
+        const response = await dynamodbclient.query({
+            IndexName : "gs2-index",
+            TableName : process.env.TABLE_NAME as string,
+            KeyConditionExpression : " #x = :y ",
+            ExpressionAttributeNames : {
+                "#x" : "gs2pk"
+            },
+            ExpressionAttributeValues : {
+                ":y" : "ordersales"
+            },
+            Limit : 10,
+            ScanIndexForward : false
+        }).promise()
+        // console.log("response ", response)
+      const data = response['Items']
+      return data as inventory[]
+    } catch (error) {
+        console.log("error", error)
+        return []
+    }
+}
+

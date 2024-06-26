@@ -187,8 +187,8 @@ export const getProductsByCartItems: () => Promise<cart_product[] | 500> = async
         }
 
         console.log("All products fetched with quantities:", products);
-        return products;
-    }
+        return products as cart_product[]
+    } 
  catch (error) {
         console.log("Error fetching products by cart items:", error);
         return 500;

@@ -31,6 +31,7 @@ import React from "react";
 import CategorySection from "@/modules/components/categorysection";
 import Slider from "@/modules/components/herosection";
 import { categories } from "@/modules/shared/utils/arrayUtils";
+import BestSellerSection from "@/modules/components/bestSellerSection";
 
 export default function Home  () {
   const slides = [
@@ -51,6 +52,7 @@ export default function Home  () {
       </div>
     </main>
     <div className="flex min-h-screen flex-col items-start p-24 bg-dark-1">
+      <BestSellerSection />
     {
       categories.map((category , index) => (
           <CategorySection key={index}  categoryId={category.categoryId} categoryName={category.categoryName}/>
