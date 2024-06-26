@@ -4,6 +4,9 @@ import Image from "next/image";
 import { cart_item, inventory } from "@/modules/shared/utils/types";
 import { addToCart } from "@/app/product/[...slug]/actions";
 
+const buttonStyle =
+  "flex flex-row bg-dark-3 justify-center items-center py-2 px-4 size-fit rounded-lg hover:cursor-pointer hover:bg-slate-700 text-textColor";
+
 const SingleProduct = ({ product }: { product: inventory }) => {
   const [quantity, setQuantity] = useState(1);
   const item = [
@@ -19,9 +22,9 @@ const SingleProduct = ({ product }: { product: inventory }) => {
   };
   return (
     <div className="bg-dark-1 flex flex-row items-center justify-center p-4">
-      <div className="w-4/12 md:h-72 mt-10 flex flex-col items-center justify-between md:grid md:grid-cols-[40%_60%]">
+      <div className="w-4/12 md:h-96 mt-10 flex flex-col items-center justify-between md:grid md:grid-cols-[40%_60%]">
         <div className="bg-dark-1 my-auto mx-auto">
-          <div className="w-full h-64 relative">
+          <div className="w-full h-84 relative">
             <Image
               src={`${product.image_url}`}
               height={420}
@@ -33,18 +36,20 @@ const SingleProduct = ({ product }: { product: inventory }) => {
           </div>
         </div>
 
-        <div className="bg-dark-1 flex flex-col justify-center pl-4 pt-6">
-          <h2 className="text-lg font-bold text-textColor">{product.name}</h2>
-          <p className="text-green-600 mb-2">In Stock</p>
-          <p className="text-xs mb-1 text-textColor">Publication Year: 2008</p>
-          <p className="text-xs mb-4 text-textColor">Author Name: Anonymous</p>
+        <div className="bg-dark-1 flex flex-col justify-center pl-12 pt-6">
+          <h2 className="text-3xl font-bold text-textColor mb-6">
+            {product.name}
+          </h2>
+          <p className="text-green-600 mb-6">In Stock</p>
+          <p className="text-md mb-1 text-textColor">Publication Year: 2008</p>
+          <p className="text-md mb-6 text-textColor">Author Name: Anonymous</p>
           <div className="flex flex-col">
             <div className="flex gap-2">
-              <h1 className="text-md font-bold text-textColor">Price:</h1>
-              <p className="text-md text-textColor">${product.price}</p>
+              <h1 className="text-lg font-bold text-textColor">Price:</h1>
+              <p className="text-lg text-textColor">${product.price}</p>
             </div>
             <div className="flex gap-2 mt-2">
-              <p className=" text-textColor text-sm">Quantity:</p>
+              <p className=" text-textColor text-md">Quantity:</p>
               <select
                 className="border border-gray-300 rounded-md  w-auto"
                 onChange={(e) => setQuantity(parseInt(e.target.value))}
@@ -56,16 +61,13 @@ const SingleProduct = ({ product }: { product: inventory }) => {
             </div>
           </div>
 
-          <div className="flex gap-2 mt-3 text-sm md:text-xs">
-            <button
-              onClick={addCart}
-              className="bg-dark-3 hover:bg-blue-900 text-white px-3 md:px-6 py-1 rounded mt-2 w-auto"
-            >
-              Add to Cart
-            </button>
-            <button className="bg-dark-3 hover:bg-blue-900 text-white px-3 md:px-6 py-1 rounded mt-2 w-auto">
-              Buy Now
-            </button>
+          <div className="flex gap-2 mt-3 text-sm md:text-xs pt-6">
+            <div className={buttonStyle}>
+              <button onClick={addCart}>Add to Cart</button>
+            </div>
+            <div className={buttonStyle}>
+              <button>Buy Now</button>
+            </div>
           </div>
         </div>
       </div>
