@@ -6,6 +6,7 @@ import { cart_product } from '@/modules/shared/utils/types';
 import { createOrder } from './actions';
 import BuyButton from '@/components/ui/BuyButton';
 
+
 const page = async () => {
   const cartItems = await getProductsByCartItems();
  
@@ -26,7 +27,10 @@ const page = async () => {
 
 
     </div>
+
   )
+  
 }
 
 export default page
+
