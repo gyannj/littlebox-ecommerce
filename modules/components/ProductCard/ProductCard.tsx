@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function ProductCard({
   productName,
@@ -26,8 +26,8 @@ function ProductCard({
             alt={productName}
             className=" h-full object-contain"
           />
-        
-{/* <!--         <div className="px-4 py-4 text-textColor">
+
+          {/* <!--         <div className="px-4 py-4 text-textColor">
           <div className="font-bold lg:text-2xl md:text-xl text-lg mb-2">{productName}</div>
           <div className="flex flex-col sm:flex-row items-center justify-between mb-2">
             <div className='flex gap-2 items-baseline'>
@@ -40,68 +40,52 @@ function ProductCard({
             </div>
             <div className="text-xs text-green-500">{discount}</div> --> */}
 
-        <div className="px-2 py-2 text-textColor">
-          <div className="font-bold md:text-xl text-lg mb-1">{productName.substring(0, 10)}...</div>
-          <div className="flex flex-col sm:flex-row items-center justify-start mb-1">
-            <div className='flex gap-1 items-baseline'>
-              <div className="text-textColor font-semibold mb-1 sm:mb-0 text-xs sm:text-sm">
-                ${price.toFixed(1)}
+          <div className="px-2 py-2 text-textColor">
+            <div className="font-bold md:text-xl text-lg mb-1">
+              {productName.substring(0, 10)}...
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-start mb-1">
+              <div className="flex gap-1 items-baseline">
+                <div className="text-textColor font-semibold mb-1 sm:mb-0 text-xs sm:text-sm">
+                  ${price.toFixed(1)}
+                </div>
+                <div className="text-strikeThroughPriceColor line-through mr-1 sm:mr-0 sm:ml-1 text-xs md:text-s">
+                  ${originalPrice}
+                </div>
               </div>
-              <div className="text-strikeThroughPriceColor line-through mr-1 sm:mr-0 sm:ml-1 text-xs md:text-s">
-                ${originalPrice}
+              <div className="text-xs text-priceDropColor ml-2">
+                {discount}% off
               </div>
             </div>
-            <div className="text-xs text-priceDropColor ml-2">{discount}% off</div>
-
-          </div>
-          <div className="flex items-center mt-1 text-lg">
-            {[...Array(ratings)].map((_, index) => (
-              <span key={index} className="text-goldColor mr-0.5">
-                ★
-              </span>
-            ))}
-            {[...Array(5 - ratings)].map((_, index) => (
-              <span key={index} className="text-goldColor mr-0.5">
-                ☆
-              </span>
-            ))}
+            <div className="flex items-center mt-1 text-lg">
+              {[...Array(ratings)].map((_, index) => (
+                <span key={index} className="text-goldColor mr-0.5">
+                  ★
+                </span>
+              ))}
+              {[...Array(5 - ratings)].map((_, index) => (
+                <span key={index} className="text-goldColor mr-0.5">
+                  ☆
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
 
 ProductCard.propTypes = {
   productName: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  originalPrice: PropTypes.string.isRequired,
-  discount: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  originalPrice: PropTypes.number.isRequired,
+  discount: PropTypes.number.isRequired,
   productImage: PropTypes.string.isRequired,
   ratings: PropTypes.number.isRequired,
 };
 
 export default ProductCard;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from 'react';
 // import PropTypes from 'prop-types';
@@ -169,26 +153,6 @@ export default ProductCard;
 
 // export default ProductCard;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from 'react';
 // import dynamic from 'next/dynamic';
 
@@ -223,19 +187,6 @@ export default ProductCard;
 
 // export default ProductCard;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from 'react';
 // import dynamic from 'next/dynamic';
 
@@ -259,87 +210,17 @@ export default ProductCard;
 
 // export default ProductCard;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from 'react'
 // import Image from 'next/image'
-
 
 // function ProductCard() {
 //   return (
 //     <div className='h-3/4 w-3/4 mx-auto my-auto '>
 //       <div className="max-w-sm rounded overflow-hidden shadow-lg ">
 
-        
 //         <div className='my-2 relative flex justify-center h-96 items-center' >
 //         <Image src="/bookcover.jpg" fill alt="Sunset in the mountains" className='object-contain' />
 //         </div>
-
 
 //         {/* <img className="w-full" src="/apple-watch.png" alt="Sunset in the mountains" /> */}
 //         <div className="px-4 py-4  text-textColor">
@@ -347,10 +228,9 @@ export default ProductCard;
 //           {/* <p className=" text-base">
 //             Lorem ipsum dol
 //           </p> */}
-          
+
 //           <div className="font-medium text-base mb-2 mt-2">Rs 1500</div>
 //         </div>
-
 
 //         {/* <div className="px-6 pt-4 pb-2">
 //           <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">
