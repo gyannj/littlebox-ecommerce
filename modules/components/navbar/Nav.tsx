@@ -6,8 +6,8 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import NavMobile from './NavMobile';
 import BurgerButton from './HamBurgerButton';
-import { useSession } from 'next-auth/react';
 
+import { useSession, signIn, signOut } from "next-auth/react"
 
 type Props = {}
 
@@ -37,9 +37,7 @@ const Nav = (props: Props) => {
                     </Link>
                     {
                         session ? 
-                        <Link href='/account' className={linkStyle}>
-                            Account
-                        </Link> :
+                        <button className={linkStyle} onClick={() => signOut()}>Sign out</button> :
                         <Link href='/sign-in' className={linkStyle}>
                             Sign In
                         </Link>
