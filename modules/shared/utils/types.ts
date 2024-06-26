@@ -36,3 +36,39 @@ export interface cart_product {
   productId: string;
   quantity: number;
 }
+
+export interface order{
+  "category_id": string,
+   "img": string,
+   "product_id": string,
+   "product_name": string,
+   "quantity": number
+}
+
+export interface createOrderParams {
+  created_at: string; // Date and time of order creation
+  orderId: string; // Unique order ID
+  order_items: {
+    quantity: number;
+    img: string;
+    product_name: string;
+    product_id: string;
+    category_id: string;
+  }[];
+  billing_address: {
+    address: string;
+    pincode: number;
+    state: string;
+    city: string;
+  };
+  shipping_address: {
+    address: string;
+    pincode: number;
+    state: string;
+    city: string;
+  };
+  first_name: string; // First name of the customer
+  last_name: string; // Last name of the customer
+  price: number; // Total price of the order
+  shipping_charges: number;
+}
