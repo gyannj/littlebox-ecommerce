@@ -1,9 +1,12 @@
+"use server"
 import AWS from "aws-sdk";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import { v4 as uuidv4, v4 } from "uuid";
+import { cart_product } from "@/modules/shared/utils/types";
 
-const dynamodbclient = new AWS.DynamoDB.DocumentClient();
+// const dynamodbclient = new AWS.DynamoDB.DocumentClient();
+const dynamodbclient = new AWS.DynamoDB.DocumentClient({region : process.env.REGION , accessKeyId : process.env.ACCESS_KEY , secretAccessKey : process.env.SECRET_KEY})
 
 //order derails
 //pk ,sk ,created_at, orderId, billing addresss : addresss , pincode ,state , city , shippping address, first name , last name ,price , shipping charges
@@ -39,15 +42,46 @@ interface createOrderParams {
 }
 
 export const createOrder: (
-  order: createOrderParams
-) => Promise<200 | 500> = async (order) => {
+  cart : cart_product[]
+) => Promise<200 | 500> = async (cart) => {
   try {
-    const session = getServerSession(authOptions);
-    const userId = "userId" in session ? session.userId : null;
+    console.log("creating order", cart)
+    const session = await getServerSession(authOptions);
+    console.log("session",session)
+    const userId = session &&  "userId" in session ? session.userId : null;
+    console.log("user id" , userId)
     if (!userId) {
       return 500;
     }
+
     const id = uuidv4();
+    const order : createOrderParams = {
+      created_at : new Date().toISOString(),
+      orderId : id,
+      order_items: cart.map((cartItem : cart_product) => ({
+        quantity: cartItem.quantity,
+        img: cartItem.image_url,
+        product_name: cartItem.name,
+        product_id: cartItem.productId,
+        category_id: cartItem.categoryId,
+      })),
+      billing_address: {
+        address: "123",
+        pincode: 781028,
+        state: "Assam",
+        city: "Guwahati"
+      },
+      shipping_address:{
+        address: "123",
+        pincode: 781028,
+        state: "Assam",
+        city: "Guwahati"
+      },
+      first_name: "A", // First name of the customer
+      last_name: "B", // Last name of the customer
+      price: cart.reduce((acc , cartItem) => acc + (cartItem.price * cartItem.quantity) ,0), // Total price of the order
+      shipping_charges: 99
+    }
     const newOrder = {
       pk: `order#${id}`,
       sk: `order#${id}`,
@@ -84,7 +118,7 @@ export const createOrder: (
             sk: item.product_id,
           },
           UpdateExpression:
-            "SET gs1pk = :x, gs1sk = if_not_exists(gs1sk , :empty) + :count, sales = if_not_exists(sales , :empty) + :count",
+            "SET gs2pk = :x, gs2sk = if_not_exists(gs2sk , :empty) + :count, sales = if_not_exists(sales , :empty) + :count",
           ExpressionAttributeValues: {
             ":empty": 0,
             ":count": item.quantity,
