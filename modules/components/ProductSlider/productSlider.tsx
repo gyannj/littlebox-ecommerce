@@ -19,7 +19,7 @@ function ProductSlider({ products }: props) {
     sellingPrice: number
   ): number => {
     const discount = ((originalPrice - sellingPrice) / originalPrice) * 100;
-    return parseFloat(discount.toFixed(2));
+    return parseFloat(discount.toFixed(1));
   };
   return (
     <div className="basis-full h-3/4 w-full my-10 ">

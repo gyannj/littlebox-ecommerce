@@ -1,11 +1,15 @@
-import CartCard from '@/modules/components/CartCard/CartCard'
-import React from 'react'
-import { getCartItems, getProductsByCartItems } from '../product/[...slug]/actions'
+import CartCard from "@/modules/components/CartCard/CartCard";
+import React from "react";
+import {
+  getCartItems,
+  getProductsByCartItems,
+} from "../product/[...slug]/actions";
 
-const page =async () => {
+const page = async () => {
   const cartItems = await getProductsByCartItems();
-  console.log("cartItems", cartItems)
+  console.log("cartItems", cartItems);
   return (
+
     <div className='flex bg-dark-1 gap-4 pb-4'>
     <div className='w-9/12'>
     {cartItems === 500||cartItems.length == 0 ? 
@@ -29,8 +33,9 @@ const page =async () => {
    
 
 
-    </div>
-  )
-}
+export default page;
 
-export default page
+//put order create  pk : order#orderId , orderId , gs1pk : customerId , gs1sk : date
+
+// for loop products
+//update expression ,#inventory ( sales(number)) ++
