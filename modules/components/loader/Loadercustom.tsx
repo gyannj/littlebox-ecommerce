@@ -3,9 +3,9 @@ import React from 'react'
 
 type Props = {}
 
-const index = (props: Props) => {
+const Loadercustom = (props: Props) => {
   return (
-    <div className='flex-center h-screen w-full'>
+    <div className=''>
         <Image 
             src="/icons/loading-circle.svg"
             alt='loading'
@@ -16,4 +16,4 @@ const index = (props: Props) => {
   )
 }
 
-export default index
+export default Loadercustom

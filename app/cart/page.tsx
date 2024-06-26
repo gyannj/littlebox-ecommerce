@@ -13,6 +13,7 @@ import {
   getCartItems,
   getProductsByCartItems,
 } from "../product/[...slug]/actions";
+
 const page = async () => {
   const cartItems = await getProductsByCartItems();
  
@@ -33,7 +34,9 @@ const page = async () => {
 
 
     </div>
+
   )
+  
 }
 
 export default page
