@@ -15,8 +15,9 @@ const dynamodbclient = new AWS.DynamoDB.DocumentClient({region : process.env.REG
 
 
 export const createOrder: (
-  cart : cart_product[]
-) => Promise<200 | 500> = async (cart) => {
+  cart : cart_product[],
+  formData: FormData
+) => Promise<200 | 500> = async (cart,formData) => {
   try {
     console.log("creating order", cart)
     const session = await getServerSession(authOptions);
@@ -39,19 +40,19 @@ export const createOrder: (
         category_id: cartItem.categoryId,
       })),
       billing_address: {
-        address: "123",
-        pincode: 781028,
-        state: "Assam",
-        city: "Guwahati"
+        address: formData.get("address.address") as string,
+        pincode: Number(formData.get("address.pincode")),
+        state: formData.get("address.state") as string,
+        city: formData.get("address.city") as string
       },
       shipping_address:{
-        address: "123",
-        pincode: 781028,
-        state: "Assam",
-        city: "Guwahati"
+        address: formData.get("address.address") as string,
+        pincode: Number(formData.get("address.pincode")),
+        state: formData.get("address.state") as string,
+        city: formData.get("address.city") as string
       },
-      first_name: "A", // First name of the customer
-      last_name: "B", // Last name of the customer
+      first_name: formData.get("first_name") as string, // First name of the customer
+      last_name: formData.get("last_name") as string, // Last name of the customer
       price: cart.reduce((acc , cartItem) => acc + (cartItem.price * cartItem.quantity) ,0), // Total price of the order
       shipping_charges: 99
     }
