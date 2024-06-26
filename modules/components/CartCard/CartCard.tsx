@@ -1,6 +1,8 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import { cart_product, inventory } from '@/modules/shared/utils/types';
+import { deleteCartItem } from '@/app/product/[...slug]/actions';
 
 // type props = {
 //   items : inventory[]
@@ -14,7 +16,7 @@ const CartCard = ({items}: any) => {
 
 
 
-  {items.map((item : inventory , index : number) => (
+  {items.map((item : cart_product , index : number) => (
       <div className='bg-dark-3 w-8/12 md:h-72 rounded-2xl mt-10 flex flex-col items-center md:grid md:grid-cols-[20%_60%_20%]'>
 
         <div className='bg-dark-3 my-auto rounded mx-auto'>
@@ -37,7 +39,7 @@ const CartCard = ({items}: any) => {
           <p className='text-xs mb-1 text-textColor'>Publication Year: 2008</p>
           <p className='text-xs mb-4 text-textColor'>{item.vendor}</p>
           <div className='flex gap-2'>
-            <p className=' text-textColor'>Quantity: </p>
+            <p className=' text-textColor'>Quantity: {item.quantity}</p>
             {/* <select value ={item.quantity} className='border border-gray-300 rounded-md px-2 py-1 w-10'>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -45,7 +47,7 @@ const CartCard = ({items}: any) => {
             </select> */}
           </div>
           
-          <button className='bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded mt-2 w-32'>Delete</button>
+          <button className='bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded mt-2 w-32' onClick={()=> deleteCartItem(item.categoryId,item.productId)}>Delete</button>
         </div>
 
 
