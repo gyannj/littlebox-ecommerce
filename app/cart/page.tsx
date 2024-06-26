@@ -22,7 +22,7 @@ const page = async () => {
     <div className='flex bg-dark-1 gap-4 pb-4'>
     <div className='w-9/12'>
     {cartItems === 500||cartItems.length == 0 ? 
-      <div className='text-textColor flex justify-center items-center'>No items in cart</div> : <CartCard items={cartItems}/>}
+      <div className='text-textColor flex flex-col justify-center items-center'>No items in cart</div> : <CartCard items={cartItems}/>}
      
     </div>
     {cartItems === 500||cartItems.length == 0 ? null : 

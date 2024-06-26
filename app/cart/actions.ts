@@ -3,7 +3,7 @@ import AWS from "aws-sdk";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import { v4 as uuidv4, v4 } from "uuid";
-import { cart_product } from "@/modules/shared/utils/types";
+import { cart_product, createOrderParams } from "@/modules/shared/utils/types";
 
 // const dynamodbclient = new AWS.DynamoDB.DocumentClient();
 const dynamodbclient = new AWS.DynamoDB.DocumentClient({region : process.env.REGION , accessKeyId : process.env.ACCESS_KEY , secretAccessKey : process.env.SECRET_KEY})
@@ -13,33 +13,6 @@ const dynamodbclient = new AWS.DynamoDB.DocumentClient({region : process.env.REG
 //order items
 //pk : <orderId>#orderitems , sk : product id , quantity , product img, product name
 
-interface createOrderParams {
-  created_at: string; // Date and time of order creation
-  orderId: string; // Unique order ID
-  order_items: {
-    quantity: number;
-    img: string;
-    product_name: string;
-    product_id: string;
-    category_id: string;
-  }[];
-  billing_address: {
-    address: string;
-    pincode: number;
-    state: string;
-    city: string;
-  };
-  shipping_address: {
-    address: string;
-    pincode: number;
-    state: string;
-    city: string;
-  };
-  first_name: string; // First name of the customer
-  last_name: string; // Last name of the customer
-  price: number; // Total price of the order
-  shipping_charges: number;
-}
 
 export const createOrder: (
   cart : cart_product[]
@@ -118,7 +91,7 @@ export const createOrder: (
             sk: item.product_id,
           },
           UpdateExpression:
-            "SET gs2pk = :x, gs2sk = if_not_exists(gs2sk , :empty) + :count, sales = if_not_exists(sales , :empty) + :count",
+            "SET gs2pk = :x, gs2sk = if_not_exists(gs2sk , :empty) + :count, sales = if_not_exists(sales , :empty) + :count, stock = if_not_exists(stock , :empty) - :count",
           ExpressionAttributeValues: {
             ":empty": 0,
             ":count": item.quantity,

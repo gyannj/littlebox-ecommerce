@@ -11,6 +11,7 @@ type Props = {
   pubYear: number;
   authorName: string;
   qnty: number;
+  orderImage: string;
 };
 
 const headerLabel = "text-purpleText font-medium text-md";
@@ -27,14 +28,17 @@ const index = ({
   pubYear,
   authorName,
   qnty,
+  orderImage,
 }: Props) => {
+  const formattedDate = new Date(orderDate).toLocaleDateString("en-GB");
+  
   return (
     <div className="flex flex-col text-textColor bg-dark-3 mx-16 rounded-2xl">
       <div className="flex flex-row justify-between bg-dark-2 p-4 rounded-t-2xl">
         <div className="flex flex-row">
           <div className="px-4">
             <p className={headerLabel}>ORDER PLACED</p>
-            <p className={detailsHeader}>{orderDate}</p>
+            <p className={detailsHeader}>{formattedDate}</p>
           </div>
           <div className="px-4">
             <p className={headerLabel}>TOTAL VALUE</p>
@@ -56,7 +60,7 @@ const index = ({
         <div className="flex flex-row items-center">
           <div className="pr-8">
             <Image
-              src="/bookcover.jpg"
+              src={orderImage}
               width={160}
               height={100}
               alt="bookcover"
