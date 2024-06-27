@@ -6,8 +6,15 @@ import { useRouter } from "next/navigation";
 import React from 'react'
 import { generatePDF } from "@/modules/shared/utils/pdfUtils";
 
+const placeholderStyle =
+  "flex bg-dark-3 outline-none text-searchBoxColor font-medium w-full p-2 rounded-md mt-1";
+
+const labelStyle = "block text-textColor text-sm font-bold mb-2";
+
 const CheckoutForm = () => {
 
+
+    
     const router = useRouter();
     const [cartItems, setCartItems] = useState([]);
 
@@ -35,81 +42,85 @@ const CheckoutForm = () => {
         }
     }
   return (
-    <form 
-     ref={ref}
-    action = {(formData) => {
+    <div className="max-w-md mx-auto m-10 p-6 bg-dark-2 flex flex-col rounded-lg shadow-md">
+    <form
+      ref={ref}
+      action={(formData) => {
         handleFormSubmit(formData);
-    }}>
-      <h2 className="text-2xl font-semibold mb-6 text-center">Shipping Address</h2>
+      }}
+      className="flex flex-col"
+    >
+      <h2 className="text-2xl text-purpleText font-semibold mb-6 text-center">
+        Shipping Address
+      </h2>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
+        <label className={labelStyle}>
           Address:
           <input
             type="text"
             name="address.address"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className={placeholderStyle}
           />
         </label>
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
+        <label className={labelStyle}>
           Pincode:
           <input
-            type="number"
+            type="string" // number to string
             name="address.pincode"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className={placeholderStyle}
           />
         </label>
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
+        <label className={labelStyle}>
           State:
           <input
             type="text"
             name="address.state"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className={placeholderStyle}
           />
         </label>
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
+        <label className={labelStyle}>
           City:
           <input
             type="text"
             name="address.city"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className={placeholderStyle}
           />
         </label>
       </div>
-      <h2 className="text-2xl font-semibold mb-6 text-center">Personal Information</h2>
+      <h2 className="text-2xl text-purpleText mt-16 font-semibold mb-6 text-center">
+        Personal Information
+      </h2>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
+        <label className={labelStyle}>
           First Name:
-          <input
-            type="text"
-            name="first_name"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-          />
+          <input type="text" name="first_name" className={placeholderStyle} />
         </label>
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
+        <label className={labelStyle}>
           Last Name:
-          <input
-            type="text"
-            name="last_name"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-          />
+          <input type="text" name="last_name" className={placeholderStyle} />
         </label>
       </div>
-      <button
-        type="submit"
-        className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-      >
-        Submit
-      </button>
+      <div className="flex flex-row justify-center items-center">
+        <button
+          type="submit"
+          className="bg-dark-3 py-2.5 px-4 size-fit rounded-lg hover:cursor-pointer hover:bg-slate-700 text-textColor"
+        >
+          Submit
+        </button>
+      </div>
     </form>
+  </div>
   )
 }
 
 export default CheckoutForm
+
+
