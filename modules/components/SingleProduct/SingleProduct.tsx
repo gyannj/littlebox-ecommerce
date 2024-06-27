@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { cart_item, inventory } from "@/modules/shared/utils/types";
 import { addToCart } from "@/app/product/[...slug]/actions";
+import Link from 'next/link';
 
 const buttonStyle =
   "flex flex-row bg-dark-3 justify-center items-center py-2 px-4 size-fit rounded-lg hover:cursor-pointer hover:bg-slate-700 text-textColor";
@@ -17,9 +18,17 @@ const SingleProduct = ({ product }: { product: inventory }) => {
       quantity: quantity,
     },
   ];
+
+  // const router = useRouter();
+
   const addCart = async () => {
     await addToCart(item);
+    // router.push('/cart');
   };
+
+
+  
+
   return (
     <div className="bg-dark-1 flex flex-row items-center justify-center p-4">
       <div className="w-4/12 md:h-96 mt-10 flex flex-col items-center justify-between md:grid md:grid-cols-[40%_60%]">
@@ -63,7 +72,11 @@ const SingleProduct = ({ product }: { product: inventory }) => {
 
           <div className="flex gap-2 mt-3 text-sm md:text-xs pt-6">
             <div className={buttonStyle}>
-              <button onClick={addCart}>Add to Cart</button>
+              <button onClick={addCart}>
+                <Link href='/cart'>
+                Add to Cart
+                </Link>
+                </button>
             </div>
             <div className={buttonStyle}>
               <button>Buy Now</button>
