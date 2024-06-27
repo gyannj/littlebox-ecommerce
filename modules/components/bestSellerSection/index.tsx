@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductSlider from "@/modules/components/ProductSlider/productSlider";
+import ProductSlider from "@/modules/components/ProductSlider/ProductSlider";
 import { getBestSellers } from '@/app/actions';
 
 type Props = {}

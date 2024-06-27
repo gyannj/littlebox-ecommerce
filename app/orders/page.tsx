@@ -36,6 +36,7 @@ const page = async () => {
               qnty={order.quantity}
               authorName={order.product_name}
               orderImage={order.img}
+              order = {order}
             />
           </div>
         ))

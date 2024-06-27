@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import { v4 as uuidv4, v4 } from "uuid";
 import { cart_product, createOrderParams } from "@/modules/shared/utils/types";
+import { generatePDF } from "@/modules/shared/utils/pdfUtils";
 
 // const dynamodbclient = new AWS.DynamoDB.DocumentClient();
 const dynamodbclient = new AWS.DynamoDB.DocumentClient({region : process.env.REGION , accessKeyId : process.env.ACCESS_KEY , secretAccessKey : process.env.SECRET_KEY})
@@ -17,7 +18,7 @@ const dynamodbclient = new AWS.DynamoDB.DocumentClient({region : process.env.REG
 export const createOrder: (
   cart : cart_product[],
   formData: FormData
-) => Promise<200 | 500> = async (cart,formData) => {
+) => Promise<createOrderParams | 500> = async (cart,formData) => {
   try {
     console.log("creating order", cart)
     const session = await getServerSession(authOptions);
@@ -38,6 +39,7 @@ export const createOrder: (
         product_name: cartItem.name,
         product_id: cartItem.productId,
         category_id: cartItem.categoryId,
+        rating : 0
       })),
       billing_address: {
         address: formData.get("address.address") as string,
@@ -71,19 +73,8 @@ export const createOrder: (
     //create order items
     const order_items = order.order_items;
     for (let i = 0; i < order_items.length; i++) {
-      const item = {
-        pk: `orderitems#${id}`,
-        sk: `orderitems#${id}`,
-        ...order_items[i],
-      };
-      //for order items
-      await dynamodbclient
-        .put({
-          TableName: process.env.TABLE_NAME as string,
-          Item: item,
-        })
-        .promise();
       //for sales
+      const item = order_items[i]
       await dynamodbclient
         .update({
           TableName: process.env.TABLE_NAME as string,
@@ -101,8 +92,8 @@ export const createOrder: (
         })
         .promise();
     }
-
-    return 200;
+    // generatePDF(newOrder)
+    return newOrder;
   } catch (error) {
     console.log("create order error", error);
     return 500;

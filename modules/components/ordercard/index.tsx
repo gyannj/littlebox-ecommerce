@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Rating from "./Rating";
+import { order } from "@/modules/shared/utils/types";
 
 type Props = {
   orderDate: any;
@@ -12,6 +14,7 @@ type Props = {
   authorName: string;
   qnty: number;
   orderImage: string;
+  order : order
 };
 
 const headerLabel = "text-purpleText font-medium text-md";
@@ -29,6 +32,7 @@ const index = ({
   authorName,
   qnty,
   orderImage,
+  order
 }: Props) => {
   const formattedDate = new Date(orderDate).toLocaleDateString("en-GB");
   
@@ -90,9 +94,7 @@ const index = ({
           <Link href="/" className={buttonStyle}>
             View Order
           </Link>
-          <Link href="/" className={buttonStyle}>
-            Give Rating
-          </Link>
+          <Rating orderId={orderID} orderItem = {order} buttonStyle = {buttonStyle} />
         </div>
       </div>
     </div>

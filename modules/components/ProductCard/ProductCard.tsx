@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import StarRating from "../starrating";
 
 function ProductCard({
   productName,
@@ -7,16 +8,17 @@ function ProductCard({
   originalPrice,
   discount,
   productImage,
-  ratings,
+  rating,
 }: {
   productName: string;
   price: number;
   originalPrice: number;
   discount: number;
   productImage: string;
-  ratings: number;
+  rating: number;
 }) {
-  const price2 = price.toFixed(2);
+ console.log(productName);
+
   return (
     <div className="flex justify-center items-center mt-2">
       <div className="max-w-xs sm:max-w-sm w-48 h-72 rounded overflow-hidden shadow-lg">
@@ -57,18 +59,7 @@ function ProductCard({
                 {discount}% off
               </div>
             </div>
-            <div className="flex items-center mt-1 text-lg">
-              {[...Array(ratings)].map((_, index) => (
-                <span key={index} className="text-goldColor mr-0.5">
-                  ★
-                </span>
-              ))}
-              {[...Array(5 - ratings)].map((_, index) => (
-                <span key={index} className="text-goldColor mr-0.5">
-                  ☆
-                </span>
-              ))}
-            </div>
+            <StarRating rating={rating} />
           </div>
         </div>
       </div>
@@ -76,14 +67,14 @@ function ProductCard({
   );
 }
 
-ProductCard.propTypes = {
-  productName: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  originalPrice: PropTypes.number.isRequired,
-  discount: PropTypes.number.isRequired,
-  productImage: PropTypes.string.isRequired,
-  ratings: PropTypes.number.isRequired,
-};
+// ProductCard.propTypes = {
+//   productName: PropTypes.string.isRequired,
+//   price: PropTypes.number.isRequired,
+//   originalPrice: PropTypes.number.isRequired,
+//   discount: PropTypes.number.isRequired,
+//   productImage: PropTypes.string.isRequired,
+//   rating: PropTypes.number.isRequired,
+// };
 
 export default ProductCard;
 
