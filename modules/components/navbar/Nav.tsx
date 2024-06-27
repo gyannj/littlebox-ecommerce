@@ -22,10 +22,10 @@ const Nav = (props: Props) => {
  }
     return (
         <React.Fragment>
-            <div className='flex justify-between items bg-dark-3 rounded-lg p-2 lg:w-5/12 md:flex-grow-0 flex-grow mx-6 md:mx-0'>
+            {/* <div className='flex justify-between items bg-dark-3 rounded-lg p-2 lg:w-5/12 md:flex-grow-0 flex-grow mx-6 md:mx-0'>
                 <input type="text" placeholder='Search' className='flex bg-transparent outline-none text-searchBoxColor w-full' />
                 <SearchIcon className='text-searchBoxColor' />
-            </div>
+            </div> */}
         
             {isAboveMediumScreen ? (
                 <div className='flex text-textColor align-between justify-center items-center'>
