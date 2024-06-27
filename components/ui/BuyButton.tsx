@@ -48,17 +48,20 @@ const BuyButton = ({ cartItems }: BuyButtonProps) => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   };
   return (
-    <div className=''>
-       <div className="bg-dark-3 rounded-2xl  p-4 md:mt-10 h-32 w-8/12 md:w-auto ">
-       <div className="text-lg font-bold mb-4 text-textColor">SubTotal: USD { cartItems.reduce((acc , cartItem) => acc + (cartItem.price * cartItem.quantity) ,0)}</div>
-       <div className='flex flex-col'>
-         <form action="/checkout"  onSubmit={handleProceedToCheckout}>   
-            <input  className="bg-dark-1 hover:bg-blue-600 text-textColor font-bold py-2 px-4 rounded cursor-pointer" type="submit" value="Proceed to Checkout"/>
+    <div className='max-w-7xl mx-auto px-4'>
+    <div className="bg-dark-3 rounded-2xl p-4 md:mt-10 md:h-32 md:w-auto w-full">
+      <div className="text-lg font-bold mb-4 text-textColor">
+        SubTotal: USD { cartItems.reduce((acc , cartItem) => acc + (cartItem.price * cartItem.quantity) ,0)}
+      </div>
+      <div className='flex flex-col md:flex-row md:items-center md:justify-between'>
+        <form action="/checkout" onSubmit={handleProceedToCheckout} className="mb-2 md:mb-0">
+          <input className="bg-dark-1 hover:bg-blue-600 text-textColor font-bold py-2 px-4 rounded cursor-pointer w-full md:w-auto" type="submit" value="Proceed to Checkout"/>
         </form>
-       </div>
-       <div onClick={() => {generatePDF(testOrder)}}>Create invoice</div>
-       </div>
+      </div>
+        {/* <button onClick={() => generatePDF(testOrder)} className="bg-dark-1 hover:bg-blue-600 text-textColor font-bold py-2 px-4 rounded cursor-pointer w-full md:w-auto">Download Invoice</button> */}
     </div>
+  </div>
+  
   )
 }
 

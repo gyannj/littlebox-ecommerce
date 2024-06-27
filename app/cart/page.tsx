@@ -13,10 +13,10 @@ const page = async () => {
   console.log("cartItems", cartItems)
   return (
 
-    <div className='flex bg-dark-1 gap-4 pb-4'>
-    <div className='w-9/12'>
+    <div className='flex flex-col md:flex-row bg-dark-1 gap-4 pb-4'>
+    <div className='w-9/12 mx-auto'>
     {cartItems === 500||cartItems.length == 0 ? 
-      <div className='text-textColor flex flex-col justify-center items-center'>No items in cart</div> : <CartCard items={cartItems}/>}
+      <div className='text-textColor flex flex-col justify-center items-center ml-16'>No items in cart</div> : <CartCard items={cartItems}/>}
      
     </div>
     {cartItems === 500||cartItems.length == 0 ? null : 

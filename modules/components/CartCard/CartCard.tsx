@@ -1,78 +1,51 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
-import { cart_product, inventory } from '@/modules/shared/utils/types';
+import { cart_product } from '@/modules/shared/utils/types';
 import { deleteCartItem } from '@/app/product/[...slug]/actions';
 
-// type props = {
-//   items : inventory[]
-// }
-
-const CartCard = ({items}: any) => {
-  console.log(items)
+const CartCard = ({ items }: { items: cart_product[] }) => {
   return (
-    <div className='bg-dark-1 flex flex-col md:flex-row justify-center items-center gap-4 '>
+    <div className='bg-dark-1 flex flex-col gap-4'>
+      {items.map((item: cart_product, index: number) => (
+        <div key={index} className='bg-dark-3 rounded-lg overflow-hidden flex flex-col md:flex-row gap-4'>
+          <div className='md:w-1/4'>
+            <div className='w-full h-64 relative'>
+              <Image
+                src={item.image_url}
+                alt={item.name}
+                layout='fill'
+                objectFit='contain'
+                className='rounded-lg'
+              />
+            </div>
+          </div>
 
+          <div className='md:w-1/2 flex flex-col justify-center p-4'>
+            <h2 className='text-xl md:text-2xl font-bold text-textColor truncate'>{item.name}</h2>
+            <p className='text-green-600 mb-2'>In Stock: {item.stock}</p>
+            <p className='text-sm md:text-xs mb-1 text-textColor'>Publication Year: 2008</p>
+            <p className='text-sm md:text-xs mb-4 text-textColor'>{item.vendor}</p>
+            <p className='text-sm md:text-xs text-textColor'>Quantity: {item.quantity}</p>
+          </div>
 
+          <div className='md:w-1/4 bg-dark-3 p-4 flex items-center justify-center'>
+            <div className='text-xl font-bold text-textColor'>Price:</div>
+            <div className='text-xl font-bold text-textColor ml-2'>${item.price}</div>
+          </div>
 
-
-  {items.map((item : cart_product , index : number) => (
-      <div className='bg-dark-3 w-8/12 md:h-72 rounded-2xl mt-10 flex flex-col items-center md:grid md:grid-cols-[20%_60%_20%]'>
-
-        <div className='bg-dark-3 my-auto rounded mx-auto'>
-          <div className='w-full h-64 relative'>
-            <Image
-              src={`${item.image_url}`}
-              height={160}
-              width={160}
-              style={{objectFit: "contain"}}
-              alt="Picture of the author"
-              className='rounded-lg ml-2'
-            />
+          <div className='md:w-1/4 bg-dark-3 p-4 flex items-center justify-center'>
+            <button className='bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded' onClick={() => deleteCartItem(item.categoryId, item.productId)}>Delete</button>
           </div>
         </div>
-
-
-        <div className='bg-dark-3 flex flex-col justify-center pl-4 pt-6'>
-          <h2 className='text-2xl font-bold text-textColor'>{item.name}</h2>
-          <p className='text-green-600 mb-2'>In Stock: {item.stock}</p>
-          <p className='text-xs mb-1 text-textColor'>Publication Year: 2008</p>
-          <p className='text-xs mb-4 text-textColor'>{item.vendor}</p>
-          <div className='flex gap-2'>
-            <p className=' text-textColor'>Quantity: {item.quantity}</p>
-            {/* <select value ={item.quantity} className='border border-gray-300 rounded-md px-2 py-1 w-10'>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select> */}
-          </div>
-          
-          <button className='bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded mt-2 w-32' onClick={()=> deleteCartItem(item.categoryId,item.productId)}>Delete</button>
-        </div>
-
-
-        <div className='bg-dark-3 pl-4 pt-14 pb-4 rounded-r-2xl'>
-          <h1 className='text-2xl font-bold text-textColor'>Price:</h1>
-          <p className='md:text-md text-textColor'>${item.price}</p>
-        </div>
-      </div>
-
-  ))
-}
-      
-
-      
-
-
-
-
-
-
+      ))}
     </div>
   );
 };
 
 export default CartCard;
+
+
 
 
 
