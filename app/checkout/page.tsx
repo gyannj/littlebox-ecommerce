@@ -9,7 +9,7 @@ const page = () => {
 
    
   return (
-    <div className="max-w-md mx-auto m-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-md mx-auto m-10 p-6 rounded-lg shadow-md">
     <CheckoutForm/>
   </div>
   )
