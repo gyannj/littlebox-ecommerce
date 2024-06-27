@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductSlider from "@/modules/components/ProductSlider/productSlider";
+import ProductSlider from "@/modules/components/ProductSlider/ProductSlider";
 import { getProductsByCategoryId } from '@/app/actions';
 import { inventory } from '@/modules/shared/utils/types';
 
@@ -10,7 +10,7 @@ type Props = {
 
 const index = async ({categoryId , categoryName}: Props) => {
   const data = await getProductsByCategoryId(categoryId)
-  // console.log("data", data)
+  console.log("data", data)
   return (
     <>
       <div>

@@ -42,7 +42,7 @@ function ProductSlider({ products }: props) {
                     product.price
                   )}
                   productImage={product.image_url}
-                  ratings={0}
+                  rating={product.rating || 0} 
                 />
               </Link>
             </CarouselItem>

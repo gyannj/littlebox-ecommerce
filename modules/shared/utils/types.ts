@@ -12,6 +12,8 @@ export interface inventory {
   price: number;
   pk: string;
   productId: string;
+  rating : number | undefined;
+  rating_count : number | undefined
 }
 
 export interface cart_item {
@@ -42,19 +44,14 @@ export interface order{
    "img": string,
    "product_id": string,
    "product_name": string,
-   "quantity": number
+   "quantity": number,
+   "rating" : number | undefined
 }
 
 export interface createOrderParams {
   created_at: string; // Date and time of order creation
   orderId: string; // Unique order ID
-  order_items: {
-    quantity: number;
-    img: string;
-    product_name: string;
-    product_id: string;
-    category_id: string;
-  }[];
+  order_items: order[];
   billing_address: {
     address: string;
     pincode: number;
