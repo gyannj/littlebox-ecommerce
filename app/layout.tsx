@@ -5,6 +5,7 @@ import NavBar from "@/modules/components/navbar"
 import Footer2 from "@/modules/components/Footer/footer2";
 import AuthProvider from "@/modules/components/AuthProvider/AuthProvider";
 import Footer from "@/modules/components/Footer/Footer";
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: "Book-Wala",
@@ -23,6 +24,7 @@ export default function RootLayout({
           <NavBar/>
           <div className="pt-20">
             {children}
+            <Toaster />
             <Footer/>
           </div>
       </body>

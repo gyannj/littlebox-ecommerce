@@ -1,6 +1,15 @@
+"use client"
+
+
 import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
+
+ 
+import { Button } from "@/components/ui/button"
+import { ToastAction } from "@/components/ui/toast"
+import { useToast } from "@/components/ui/use-toast"
+
 
 type Props = {}
 
@@ -8,6 +17,7 @@ const buttonStyle = 'flex flex-row bg-dark-3 justify-center items-center py-3 px
 const placeholderStyle = 'flex bg-dark-3 outline-none text-searchBoxColor font-medium w-96 p-2 rounded-xl';
 
 const page = (props: Props) => {
+    const { toast } = useToast()
   return (
     <div className='flex flex-col bg-dark-1 justify-center items-center text-textColor py-24'>
         <div className={buttonStyle} >
@@ -72,9 +82,20 @@ const page = (props: Props) => {
         </div>
 
         <div className='flex flex-col gap-4 mt-16 items-center'>
-            <div className={buttonStyle}>
-                <Link href='/sign-up' className='font-medium'>
+            <div className=''>
+                <Link href='/sign-in' className='font-medium'>
+                <Button
+                    className='flex flex-row bg-dark-3 justify-center items-center py-3 px-4 size-fit rounded-lg hover:cursor-pointer hover:bg-slate-700'
+                    onClick={() => {
+                        toast({
+                        title: "Sign Up Successful",
+                        description: "Please Sign In",
+                        })
+                    }}
+                >
                     Sign Up
+                </Button>
+
                 </Link>
             </div>
             
