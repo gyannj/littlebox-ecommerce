@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/modules/components/navbar"
+import NavBar from "@/modules/components/navbar";
 import Footer2 from "@/modules/components/Footer/footer2";
 import AuthProvider from "@/modules/components/AuthProvider/AuthProvider";
 import Footer from "@/modules/components/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Book-Wala",
+  title: "BookOwl",
   description: "Book Selling E-Commerce Website",
 };
 
@@ -18,15 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-     <AuthProvider>
+      <AuthProvider>
         <body className="bg-dark-1">
-          <NavBar/>
+          <NavBar />
           <div className="pt-20">
             {children}
-            <Footer/>
+            <Footer />
           </div>
-      </body>
-     </AuthProvider>
+        </body>
+      </AuthProvider>
     </html>
   );
 }
