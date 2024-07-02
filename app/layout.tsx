@@ -5,7 +5,7 @@ import NavBar from "@/modules/components/navbar";
 import Footer2 from "@/modules/components/Footer/footer2";
 import AuthProvider from "@/modules/components/AuthProvider/AuthProvider";
 import Footer from "@/modules/components/Footer/Footer";
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "BookOwl",
@@ -25,7 +25,7 @@ export default function RootLayout({
           <div className="pt-20">
             {children}
             <Toaster />
-            <Footer/>
+            <Footer />
           </div>
         </body>
       </AuthProvider>
