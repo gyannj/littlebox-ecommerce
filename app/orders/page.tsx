@@ -18,7 +18,7 @@ const page = async () => {
   console.log(orders);
 
   return (
-    <div className="bg-dark-1 p-8 py-24">
+    <div className="bg-dark-1 p-8 py-24 h-screen">
       <div className="text-textColor font-bold text-4xl mb-10 mx-16">
         My Orders
       </div>
@@ -36,7 +36,7 @@ const page = async () => {
               qnty={order.quantity}
               authorName={order.product_name}
               orderImage={order.img}
-              order = {order}
+              order={order}
             />
           </div>
         ))

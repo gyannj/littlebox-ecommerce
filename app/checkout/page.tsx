@@ -1,5 +1,3 @@
-"use client"
-
 import CheckoutForm from "@/modules/components/CheckoutFormm/CheckoutForm"
 
 
