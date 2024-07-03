@@ -8,6 +8,7 @@ const page = (props: Props) => {
       <div className="text-textColor font-bold text-4xl mb-10 mx-16">
         Our Awesome Developers
       </div>
+      <div></div>
     </div>
   );
 };
