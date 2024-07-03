@@ -15,8 +15,9 @@ const buttonStyle =
 const placeholderStyle =
   "flex bg-dark-3 outline-none text-searchBoxColor font-medium w-96 p-2 rounded-xl";
 
-const page = (props: Props) => {
-  const { toast } = useToast();
+const Page = (props: Props) => {
+    const { toast } = useToast()
+
   return (
     <div className="flex flex-col bg-dark-1 justify-center items-center text-textColor py-24">
       <div className={buttonStyle}>
@@ -111,4 +112,6 @@ const page = (props: Props) => {
   );
 };
 
-export default page;
+
+export default Page
+
