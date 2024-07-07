@@ -30,25 +30,25 @@ export default page;
 const aboutJacinth = () => (
   <div className="flex w-3/5 text-justify gap-4 flex-col">
     <p>
-      I'm Jacinth Mahanta, a final-year Electronics and Communication
+      I&apos;m Jacinth Mahanta, a final-year Electronics and Communication
       Engineering student at NIT Silchar, deeply passionate about technology,
-      innovation, and community engagement.{" "}
+      innovation, and community engagement.
     </p>
     <p>
       Currently, I serve as the Outreach Head at GDSC NIT Silchar, where I lead
       initiatives focused on fostering a culture of learning and collaboration.
-      Through GDSC, I've sharpened my leadership, communication, and project
-      management skills, organizing impactful events that contribute to our tech
-      community's growth and development.{" "}
+      Through GDSC, I&apos;ve sharpened my leadership, communication, and
+      project management skills, organizing impactful events that contribute to
+      our tech community&apos;s growth and development.
     </p>
     <p>
-      I also dedicate my time as a Mentor at both GSSoC'24 and SSoC'24, where I
-      guide individuals through coding projects. These mentoring roles allow me
-      to contribute significantly to the tech community, advocating for
+      I also dedicate my time as a Mentor at both GSSoC 2024 and SSoC 2024,
+      where I guide individuals through coding projects. These mentoring roles
+      allow me to contribute significantly to the tech community, advocating for
       diversity and inclusion within the field of technology.
     </p>
     <p>
-      Professionally, I've gained valuable hands-on experience through
+      Professionally, I&apos;ve gained valuable hands-on experience through
       internships at LittleBox India and NIC, where I immersed myself in diverse
       tech environments and expanded my skill set.
     </p>
