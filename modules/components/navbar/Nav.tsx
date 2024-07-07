@@ -32,6 +32,9 @@ const Nav = (props: Props) => {
           <Link href="/" className={linkStyle}>
             Home
           </Link>
+          <Link href="/developers" className={linkStyle}>
+            Developers
+          </Link>
           {/* <Link href='/orders' className={linkStyle}>
                         Orders
                     </Link> */}
