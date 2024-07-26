@@ -19,6 +19,15 @@ const page = (props: Props) => {
           githubLink="https://github.com/GitSentinel"
           linkedinLink="https://in.linkedin.com/in/gitsentinel"
         />
+        <DeveloperCard
+          imgSrc="/p1.png"
+          name="Gyan Jyoti Das"
+          designation="Student / Developer"
+          about={aboutGyan()}
+          fbLink="https://www.facebook.com/gyanjyoti.das.1048"
+          githubLink="https://github.com/gyannj"
+          linkedinLink="https://www.linkedin.com/in/gyan-jyoti/"
+        />
         {/* <DeveloperCard /> */}
       </div>
     </div>
@@ -55,6 +64,28 @@ const aboutJacinth = () => (
     <p>
       Feel free to connect with me on social media to discuss collaborations or
       opportunities within the tech and entrepreneurial spheres.
+    </p>
+  </div>
+);
+const aboutGyan = () => (
+  <div className="flex w-3/5 text-justify gap-4 flex-col">
+    <p>
+      Hey, I&apos;m Gyan Jyoti Das, a final-year engineering student at NIT Silchar, majoring in Electronics and Communication Engineering, with a passion for full-stack web development. My journey into web development has equipped me with a robust skill set in modern technologies such as React, Node.js, Express, MongoDB, and Next.js.
+    </p>
+    <p>
+    I am driven by a strong desire to create impactful, user-friendly web applications. My projects reflect my commitment to writing clean, efficient code and my enthusiasm for continuous learning and innovation in the field of web development. As I move forward in my career, I am excited to bring my technical expertise, collaborative spirit, and problem-solving abilities to new and challenging opportunities in software and full-stack web development.
+    </p>
+    <p>
+    During my recent internship at Littlebox India, I had the opportunity to build several real-world projects that showcased my ability to apply theoretical knowledge in practical scenarios. One of the highlights of my internship was collaborating with a team to develop this full-featured ecommerce platform. This experience not only honed my technical skills but also underscored the importance of teamwork, effective communication, and meeting tight deadlines.
+    </p>
+    <p>
+    For more information about my work and projects, please check out my developer portfolio website at
+    <span className="m-2 text-blue-400">
+    <a href="https://www.gyann.tech/">
+       Gyan Jyoti Das
+    </a>
+    </span>
+   and feel free to contact anytime.
     </p>
   </div>
 );
