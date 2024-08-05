@@ -7,12 +7,12 @@ interface PageProps {
   };
 }
 
-const page = async ({ params }: PageProps) => {
+const Page = async ({ params }: PageProps) => {
   const categoryId = params.slug[0];
   const productId = params.slug[1];
   const data = await getSingleProduct(categoryId, productId);
   if (data === 500) {
-    return <div>product not found</div>;
+    return <div>Product Not Found</div>;
   } else
     return (
       <div className="mb-24">
@@ -21,4 +21,4 @@ const page = async ({ params }: PageProps) => {
     );
 };
 
-export default page;
+export default Page;
