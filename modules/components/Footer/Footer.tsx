@@ -74,11 +74,11 @@ export default function Footer() {
     {/* <!--Copyright section--> */}
     <div
       className="bg-dark-2 p-4 text-center text-textColor">
-      © 2023 Copyright:
+      © 2024 Copyright:
       <a
         className="text-textColor"
-        href="https://tw-elements.com/"
-      >TW Elements</a>
+        href=""
+      >BookOwl</a>
     </div>
   </footer>
   );

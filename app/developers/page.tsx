@@ -28,6 +28,15 @@ const page = (props: Props) => {
           githubLink="https://github.com/gyannj"
           linkedinLink="https://www.linkedin.com/in/gyan-jyoti/"
         />
+        <DeveloperCard
+          imgSrc="/p3.png"
+          name="Rituraj Gautam"
+          designation="Student / Developer"
+          about={aboutRituraj()}
+          fbLink="https://www.facebook.com/thisisrg/"
+          githubLink="https://github.com/zayconik"
+          linkedinLink="https://www.linkedin.com/in/riturajgautam/"
+        />
         {/* <DeveloperCard /> */}
       </div>
     </div>
@@ -87,5 +96,56 @@ const aboutGyan = () => (
     </span>
    and feel free to contact anytime.
     </p>
+  </div>
+);
+const aboutRituraj = () => (
+  <div className="flex w-3/5 text-justify gap-4 flex-col">
+    <p>
+      Hello, I’m Rituraj Gautam, a final-year Electronics and Communication
+      Engineering student at NIT Silchar with a strong focus on full-stack web
+      development and cybersecurity. Currently, I am enhancing my skills through
+      various roles and projects. 
+    </p>
+      
+    <p>
+      As a Full Stack Web Development Intern at
+      LittleBox India, I developed a comprehensive e-commerce platform,
+      optimizing both frontend and backend operations to significantly improve
+      performance and user satisfaction. 
+      </p>
+      
+      <p>
+      I’ve also led and contributed to several impactful projects,
+      including the development of an Application Management System and a movie
+      website, both utilizing modern technologies such as Next.js, React, and
+      MongoDB. These projects highlight my commitment to delivering efficient,
+      user-centric web applications and optimizing user experiences. 
+      </p>
+
+      <p>
+      Beyond technical roles, I actively participate in leadership and design
+      responsibilities at NIT Silchar. As the Collaboration and Outreach Head
+      for E-Cell and the Design Head for the Finance Club, I’ve honed my skills
+      in teamwork, communication, and project management. 
+      </p>
+
+      <p>
+      Feel free to explore
+      my portfolio at <span className="m-2 text-blue-400">
+    <a href="https://riturajgautam.xyz/">
+       Rituraj Gautam
+    </a>
+    </span> and connect with me on <span className="m-2 text-blue-400">
+    <a href="https://www.linkedin.com/in/riturajgautam/">
+       LinkedIn
+    </a>
+    </span> or
+    <span className="m-2 text-blue-400">
+    <a href="https://github.com/zayconik">
+       GitHub
+    </a>
+    </span>. I’m always open to discussing new opportunities, collaborations,
+      and innovations in technology.
+      </p>
   </div>
 );
