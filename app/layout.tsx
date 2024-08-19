@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/modules/components/navbar";
-import Footer2 from "@/modules/components/Footer/footer2";
-import AuthProvider from "@/modules/components/AuthProvider/AuthProvider";
 import Footer from "@/modules/components/Footer/Footer";
+import AuthProvider from "@/modules/components/AuthProvider/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
@@ -20,13 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body className="bg-dark-1">
+        <body className="flex flex-col min-h-screen bg-dark-1">
           <NavBar />
-          <div className="pt-20">
+          <div className="flex-1 pt-20">
             {children}
-            <Toaster />
-            <Footer />
           </div>
+          <Toaster />
+          <Footer />
         </body>
       </AuthProvider>
     </html>

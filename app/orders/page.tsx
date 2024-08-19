@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { getOrders } from "../actions";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 
-const page = async () => {
+const Page = async () => {
   const sessions = await getServerSession(authOptions);
   console.log(sessions);
   let userId: string = "";
@@ -18,7 +18,7 @@ const page = async () => {
   console.log(orders);
 
   return (
-    <div className="bg-dark-1 p-8 py-24 h-screen">
+    <div className="bg-dark-1 p-8 py-24 min-h-screen">
       <div className="text-textColor font-bold text-4xl mb-10 mx-16">
         My Orders
       </div>
@@ -45,4 +45,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;

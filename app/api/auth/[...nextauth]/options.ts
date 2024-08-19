@@ -15,7 +15,7 @@ export const authOptions: AuthOptions = {
     },
 
     pages : {
-        "signIn" : "/login"
+        "signIn" : "/sign-in"
     },
   providers: [
     CredentialsProvider({
@@ -28,7 +28,7 @@ export const authOptions: AuthOptions = {
       async authorize (credentials) {
           if (typeof credentials !== "undefined") {
             console.log("here", credentials)
-            const response = await fetch(`${process.env.DEV_URL}/api/login`, {
+            const response = await fetch(`${process.env.DEV_URL}/api/signin`, {
                 method : "POST",
                 body : JSON.stringify({
                     email : credentials.email,
