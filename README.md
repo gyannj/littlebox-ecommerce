@@ -1,4 +1,4 @@
-# BookWala: Book-Buying E-Commerce Website
+# BookOwl: Book-Buying E-Commerce Website
 
 This project is book-buying ecommerce website. It aims to provide a book buying platform where users can browse and buy their favorite books. It has been created using NextJS 14 with backend in NodeJS and using AWS for backend hosting and TailwindCSS for styling.
 
